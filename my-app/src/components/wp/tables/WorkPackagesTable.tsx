@@ -167,15 +167,12 @@ function createData(
    Margin,
   history: [
       {
-        date: '2020-01-05',
-        customerId: '11091700',
-        amount: 3,
-      },
-      {
-        date: '2020-01-02',
-        customerId: 'Anonymous',
-        amount: 1,
-      },
+        WPNumber,
+        WPName,
+        ProjectShortName,
+        StartDate,
+        EndDate,
+      }
     ],
   };
 }
@@ -236,23 +233,61 @@ function Row(props: { row: ReturnType<typeof createData> }) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Customer</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Total price ($)</TableCell>
+                  <TableCell align="right">ProjectName</TableCell>
+                  <TableCell align="right">WPShortName</TableCell>
+                  <TableCell align="right">StartDate</TableCell>
+                  <TableCell align="right">EndDate</TableCell>
+                  <TableCell align="right">Contract</TableCell>
+              <TableCell align="right">Customer</TableCell>
+              <TableCell align="right">PM</TableCell>
+              <TableCell align="right">Service Area/Line</TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right">Project Type</TableCell>
+              <TableCell align="right">Bill Rate</TableCell>
+              <TableCell align="right">Curr.</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Hours</TableCell>
+              <TableCell align="right">TSA/MSA</TableCell>
+              <TableCell align="right">Margin</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.date}>
-                      <TableCell component="th" scope="row">
-                        {historyRow.date}
-                      </TableCell>
-                      <TableCell>{historyRow.customerId}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">
-                        {Math.round(historyRow.amount * 100) / 100}
-                      </TableCell>
+                    <TableRow>
+                     <TableCell align="right">ProjectName</TableCell>
+               <TableCell align="right">WPShortName</TableCell>
+                     <TableCell align="right">StartDate</TableCell>
+                     <TableCell align="right">EndDate</TableCell>
+                     <TableCell align="right">Contract</TableCell>
+              <TableCell align="right">Customer</TableCell>
+              <TableCell align="right">PM</TableCell>
+              <TableCell align="right">Service Area/Line</TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right">Project Type</TableCell>
+              <TableCell align="right">Bill Rate</TableCell>
+              <TableCell align="right">Curr.</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Hours</TableCell>
+              <TableCell align="right">TSA/MSA</TableCell>
+              <TableCell align="right">Margin</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
