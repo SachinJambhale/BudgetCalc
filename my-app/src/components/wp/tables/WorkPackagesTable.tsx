@@ -123,8 +123,8 @@ function createData(
   Contract: string,
   Customer: string,
   Manager: string,
-  ServiceAreaLine: string
-
+  ServiceAreaLine: string,
+  SericeAreaLinea: string,
 ) {
   return {
     WPNumber,
@@ -222,8 +222,8 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 }
 
 const rows = [
-  createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line'),
-  createData('No.1', 'MORSOL TC FA DN...', 'MORSOL TC FA DN...','2023-06-01', '2023-12-31','Active Project','CustRefText','Aker Bp Asar','Manager','Service Area Line'),
+  createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line', 'Billable',),
+  // createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line', 'Billable', 'Chargeble', 'Customer Portal', 'Submit Bill','Type', 'Bill Rate', 'Currancy', 'Revenue', 'Cost', 'Revenue', 'Cost','Hours', 'TSA/MSA', 'Margin', 'Revenue', 'Cost',),
 ];
 
 const WorkPackagesTable=() =>{
@@ -243,19 +243,53 @@ const WorkPackagesTable=() =>{
               <TableCell align="right">Customer</TableCell>
               <TableCell align="right">PM</TableCell>
               <TableCell align="right">Service Area/Line</TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right">Project Type</TableCell>
+              <TableCell align="right">Bill Rate</TableCell>
+              <TableCell align="right">Curr.</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
+              <TableCell align="right">Hours</TableCell>
+              <TableCell align="right">TSA/MSA</TableCell>
+              <TableCell align="right">Margin</TableCell>
+              <TableCell align="right">Revenue</TableCell>
+              <TableCell align="right">Cost</TableCell>
           </TableRow>
           <TableRow>
             <TableCell />
-            <TableCell>ProjectNumber</TableCell>
-               <TableCell align="right">ProjectName</TableCell>
-               <TableCell align="right">WPShortName</TableCell>
-               <TableCell align="right">StartDate</TableCell>
-               <TableCell align="right">EndDate</TableCell>
-              <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Contract</TableCell>
-              <TableCell align="right">Customer</TableCell>
-              <TableCell align="right">PM</TableCell>
-              <TableCell align="right">Service Area/Line</TableCell>
+            <TableCell>10393537</TableCell>
+               <TableCell align="right">MORSAL_TC_FA_DN...</TableCell>
+               <TableCell align="right">MORSAL_TC_FA_DN-586203</TableCell>
+               <TableCell align="right">2023-04-01</TableCell>
+               <TableCell align="right">2023-09-30</TableCell>
+              <TableCell align="right">Active Project</TableCell>
+              <TableCell align="right">CustRef_text</TableCell>
+              <TableCell align="right">Aker BP ASA</TableCell>
+              <TableCell align="right">Per Torjus Einstabland</TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right">T&M TTB</TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right">Eur</TableCell>
+              <TableCell align="right">9000</TableCell>
+              <TableCell align="right">9475</TableCell>
+              <TableCell align="right">0</TableCell>
+              <TableCell align="right">0</TableCell>
+              <TableCell align="right">60</TableCell>
+              <TableCell align="right">675.00</TableCell>
+              <TableCell align="right">-13%</TableCell>
+              <TableCell align="right">9000</TableCell>
+              <TableCell align="right">10150</TableCell>             
           </TableRow>
         </TableHead>
         <TableBody>
