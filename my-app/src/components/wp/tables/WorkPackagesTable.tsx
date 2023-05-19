@@ -124,7 +124,23 @@ function createData(
   Customer: string,
   Manager: string,
   ServiceAreaLine: string,
-  SericeAreaLinea: string,
+  Billable: string,
+  Chargeble : string,
+  CustomerPortal : string,
+  SubmitBillRates : string,
+  Type : string,
+  BillRate : string,
+  Curr : string,
+  Revenue : string,
+  Cost : string,
+  Revenue1 : string,
+  Cost1 : string,
+  Hours : string,
+  TSAMSA : string,
+  Margin : string,
+  Revenue2 : string,
+  Cost2 : string,
+
 ) {
   return {
     WPNumber,
@@ -137,7 +153,19 @@ function createData(
     Customer,
     Manager,
     ServiceAreaLine,
-    history: [
+    Billable,
+    Chargeble,
+    CustomerPortal,
+    SubmitBillRates,
+    Type ,
+    BillRate ,
+    Curr ,
+    Revenue ,
+    Cost ,
+    Hours ,
+   TSAMSA ,
+   Margin,
+  history: [
       {
         date: '2020-01-05',
         customerId: '11091700',
@@ -181,6 +209,22 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell align="right">{row.Customer}</TableCell>
         <TableCell align="right">{row.Manager}</TableCell>
         <TableCell align="right">{row.ServiceAreaLine}</TableCell>
+        <TableCell align="right">{row.Billable}</TableCell>
+        <TableCell align="right">{row.Chargeble}</TableCell>
+        <TableCell align="right">{row.CustomerPortal}</TableCell>
+        <TableCell align="right">{row.SubmitBillRates}</TableCell>
+        <TableCell align="right">{row.Type}</TableCell>
+        <TableCell align="right">{row.BillRate}</TableCell>
+        <TableCell align="right">{row.Curr}</TableCell>
+        <TableCell align="right">{row.Revenue}</TableCell>
+        <TableCell align="right">{row.Cost}</TableCell>
+        <TableCell align="right">{row.Revenue}</TableCell>
+        <TableCell align="right">{row.Cost}</TableCell>
+        <TableCell align="right">{row.Hours}</TableCell>
+        <TableCell align="right">{row.TSAMSA}</TableCell>
+        <TableCell align="right">{row.Margin}</TableCell>
+        <TableCell align="right">{row.Revenue}</TableCell>
+        <TableCell align="right">{row.Cost}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -222,8 +266,9 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 }
 
 const rows = [
-  createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line', 'Billable',),
+  createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line', 'Billable', 'Chargeble', 'CustomerPortal', 'SubmitBillRates', 'Type' ,'BillRate' ,  'Curr' ,  'Revenue' ,  'Cost' ,'Revenue' ,  'Cost',  'Hours' , 'TSAMSA' , 'Margin','Revenue' , 'Cost'),
   // createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line', 'Billable', 'Chargeble', 'Customer Portal', 'Submit Bill','Type', 'Bill Rate', 'Currancy', 'Revenue', 'Cost', 'Revenue', 'Cost','Hours', 'TSA/MSA', 'Margin', 'Revenue', 'Cost',),
+   createData('No_Test_1', 'Name_Test_1', 'Name_Test_1', '2023-04-01', '2023-09-30', 'Accepted', 'CustRef_text', 'Aker BP ASA', 'Surname,Forename(signature)', '5520-Transmission & Distribution','Yes','Yes', 'Hide', 'Yes', 'Time & material', 'CTR-00098302_EUR', 'EUR', '3000', '3158', '0', '0', '20', '225', '-13%', '3000', '3383')
 ];
 
 const WorkPackagesTable=() =>{
