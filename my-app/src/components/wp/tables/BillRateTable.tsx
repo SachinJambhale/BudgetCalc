@@ -1,103 +1,3 @@
-// import * as React from "react";
-// import Table from "@mui/material/Table";
-// import TableCell from "@mui/material/TableCell";
-// import TableRow from "@mui/material/TableRow";
-// import TableBody from "@mui/material/TableBody";
-// import IconButton from '@mui/material/IconButton';
-// import TableHead from "@mui/material/TableHead";
-// import Collapse from '@mui/material/Collapse';
-// import TableContainer from "@mui/material/TableContainer";
-// import WorkPackagesCollapsible from "../collapsibles/WorkPackagesCollapsible";
-// import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-// import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-
-// interface IWorkPackagesTableProps {}
-// const data = [
-//   "",
-//   "n/a",
-//   "Dnv",
-//   "WP4",
-//   "13-05-2023",
-//   "21-05-2023",
-//   "Active ",
-//   "CustRef_text",
-//   "Aker BP ASA",
-//   "Per Torjus Einstabland",
-//   "",
-
-// ];
-
-// //component={Paper}
-// const WorkPackagesTable: React.FunctionComponent<
-//   IWorkPackagesTableProps
-// > = () => {
-//   const [open, setOpen] = React.useState(false);
-//   return (
-//     <>
-//       <TableContainer>
-//         <Table aria-label="collapsible table">
-//           <TableHead>
-//             <TableRow sx={{ borderBottom: "1px solid #fff" }}>
-//               <TableCell />
-//               <TableCell>ProjectNumber</TableCell>
-//               <TableCell align="right">ProjectName</TableCell>
-//               <TableCell align="right">WPShortName</TableCell>
-//               <TableCell align="right">StartDate</TableCell>
-//               <TableCell align="right">EndDate</TableCell>
-//               <TableCell align="right">Status</TableCell>
-//               <TableCell align="right">Contract</TableCell>
-//               <TableCell align="right">Customer</TableCell>
-//               <TableCell align="right">PM</TableCell>
-//               <TableCell align="right">Service Area/Line</TableCell>
-//             </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {data.map((row) => {
-//               return <TableCell>{row}</TableCell>;
-//             })}
-//           </TableBody>
-//         </Table>
-//       </TableContainer>
-//       <br></br>
-
-//       <TableContainer>
-//         <Table aria-label="collapsible table">
-//           <TableRow sx={{ borderBottom: "1px solid #fff" }}>
-//           <Collapse in={open} timeout="auto" unmountOnExit>
-//           <TableCell>
-//           <IconButton
-//             aria-label="expand row"
-//             size="small"
-//             onClick={() => setOpen(!open)}
-//           >
-//             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-//           </IconButton>
-//         </TableCell>
-//             <TableCell>WP Number</TableCell>
-//             <TableCell align="right">WP Name</TableCell>
-//             <TableCell align="right">Project Short Name</TableCell>
-//             <TableCell align="right">StartDate</TableCell>
-//             <TableCell align="right">EndDate</TableCell>
-//             <TableCell align="right">Status</TableCell>
-//             <TableCell align="right">Contract</TableCell>
-//             <TableCell align="right">Customer</TableCell>
-//             <TableCell align="right">Manager</TableCell>
-//             <TableCell align="right">Service Area Line</TableCell>
-//             </Collapse>
-//           </TableRow>
-//           <TableBody>
-//             {data.map((row) => {
-//               return <TableCell>{row}</TableCell>;
-//             })}
-//           </TableBody>
-//         </Table>
-//       </TableContainer>
-//     </>
-//   );
-// };
-
-// export default WorkPackagesTable;
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -108,7 +8,6 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
@@ -131,14 +30,14 @@ function createData(
         RateTableName,
         CategoryType,
         DNVInternalCategory,
-    BillRateCategory,
-    Currency,
-    BillRate,
-    BillRateCriteria,
-    ExpStart,
-    ExpEnd,
-    Validfrom,
-    Validto,
+        BillRateCategory,
+        Currency,
+        BillRate,
+        BillRateCriteria,
+        ExpStart,
+        ExpEnd,
+        Validfrom,
+        Validto,
         history: [
             {
                 RateTableName: "",
@@ -251,8 +150,8 @@ function Row(props: { row: ReturnType<typeof createData> }) {
 }
 
 const rows = [
-    createData('Lorem Ipsum', 'Internal'," "," ", 'EUR', " "," "," ",""," "," "),
-    createData('Lorem Ipsum', 'Internal'," "," ", 'EUR'," " ," ",""," "," "," ")
+    createData('Lorem Ipsum', 'Internal', " ", " ", 'EUR', " ", " ", " ", "", " ", " "),
+    createData('Lorem Ipsum', 'Internal', " ", " ", 'EUR', " ", " ", "", " ", " ", " ")
 ]
 const BillRateTable = () => {
     return (
@@ -278,13 +177,11 @@ const BillRateTable = () => {
                 <TableBody>
                     {rows.map((row) => (
                         <Row key={row.RateTableName} row={row} />
-                        
+
                     ))}
                 </TableBody>
             </Table>
         </TableContainer>
     );
 }
-
-
 export default BillRateTable;
