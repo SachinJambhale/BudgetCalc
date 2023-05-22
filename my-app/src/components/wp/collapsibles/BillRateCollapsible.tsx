@@ -8,7 +8,7 @@ import MuiAccordionSummary, {
 } from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
-import { Button } from "@mui/base";
+import { Button, Box } from "@mui/material";
 
 const Accordion = styled((props: AccordionProps) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -65,8 +65,10 @@ const BillRateCollapsible = () => {
                     <Typography>BILL RATES</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
-                    <Button>EDIT</Button>
-                    <Button>SHOW INVALID RATES </Button>
+                    <Box sx={{ margin: "5px", display: "flex", justifyContent: "end" }}>
+                        <Button sx={{ margin: "10px" }}  variant="text">EDIT</Button>
+                        <Button sx={{ margin: "10px" }}  variant="text">SHOW INVALID RATES </Button>
+                    </Box>
                     <BillRateTable />
                 </AccordionDetails>
             </Accordion>
