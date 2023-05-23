@@ -38,7 +38,7 @@ const BillRateCollapsible: React.FunctionComponent<IWorkPackagesCollapProps> = (
                 Show Subtask
               </Button>
             </Box>
-            <WorkPackageTable />
+            <BillRateTable />
           </Box>
         )}
       </div>
