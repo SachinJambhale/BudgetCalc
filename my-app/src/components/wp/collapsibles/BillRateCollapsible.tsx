@@ -20,7 +20,7 @@ const BillRateCollapsible: React.FunctionComponent<IWorkPackagesCollapProps> = (
       <div>
         <div className="collapsible" onClick={() => setOpen(!open)}>
           <h4 className="icon">{open ? <DownIcon /> : <RightIcon />} </h4>
-          <h4 className="collapseHead">BillRateCollapsoble</h4>
+          <h4 className="collapseHead">BillRateCollapsible</h4>
         </div>
 
         {open && (
@@ -38,7 +38,7 @@ const BillRateCollapsible: React.FunctionComponent<IWorkPackagesCollapProps> = (
                 Show Subtask
               </Button>
             </Box>
-            <BillRateTable />
+            <WorkPackageTable />
           </Box>
         )}
       </div>
