@@ -1,0 +1,42 @@
+.collapsible {
+  display: flex;
+  height: 30px;
+  width: 100%;
+  left: 0px;
+  top: 49px;
+  /* margin-top: 15px; */
+  border-radius: 0px;
+  background-color: #99d9f0;
+  padding: 8px 8px 8px 10px;
+}
+.icon {
+  position: relative;
+  top: -10px;
+}
+
+.collapseHead {
+  height: 16px;
+  width: 1278px;
+  position: relative;
+  left: 3px;
+  top: -10px;
+  font-family: "Segoe UI";
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 15.96px;
+  letter-spacing: 5%;
+  color: #0f204b;
+}
+
+.custombtn {
+  margin-top: 0px !important;
+  font-weight: bold !important;
+  line-height: 15.96px;
+  letter-spacing: 5%;
+  color: #0f204b !important;
+}
+
+.custombtn:hover {
+  background-color: #0f204b !important;
+  color: white !important;
+}

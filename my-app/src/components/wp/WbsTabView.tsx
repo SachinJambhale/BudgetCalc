@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
 import WorkPackagesTable from "./tables/WorkPackagesTable";
 import WorkPackagesCollapsible from "./collapsibles/WorkPackagesCollapsible";
+import WorkPackagesCollap from "./collapsibles/WorkPackagesCollap";
 
 interface IWbsTabViewProps {}
 
@@ -42,32 +43,30 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
     setValue(newValue);
   };
   return (
-    <>
-      <Container maxWidth="xl">
-        <Box sx={{ width: "100%" }}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-            <Tabs
-              value={value}
-              onChange={handleChange}
-              aria-label="basic tabs example"
-            >
-              <Tab label="VERSION ONE" />
-              <Tab label="VERSION TWO" />
-              <Tab label="VERSION THREE" />
-            </Tabs>
-          </Box>
-          <TabPanel value={value} index={0}>
-            <WorkPackagesCollapsible />
-          </TabPanel>
-          <TabPanel value={value} index={1}>
-            VERSION TWO
-          </TabPanel>
-          <TabPanel value={value} index={2}>
-            VERSION THREE
-          </TabPanel>
+    <Container maxWidth="xl">
+      <Box>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs
+            value={value}
+            onChange={handleChange}
+            aria-label="basic tabs example"
+          >
+            <Tab label="VERSION ONE" />
+            <Tab label="VERSION TWO" />
+            <Tab label="VERSION THREE" />
+          </Tabs>
         </Box>
-      </Container>
-    </>
+        <TabPanel value={value} index={0}>
+          <WorkPackagesCollapsible />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <WorkPackagesCollap />
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          VERSION THREE
+        </TabPanel>
+      </Box>
+    </Container>
   );
 };
 

@@ -12,6 +12,7 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import Ctrs from "../dummy-data/ctrs.json";
 
 function createData(
   WPNumber: string,
@@ -83,6 +84,7 @@ function createData(
 function Row(props: { row: ReturnType<typeof createData> }) {
   const { row } = props;
   const [open, setOpen] = React.useState(false);
+  const [data, setData] = React.useState(Ctrs);
 
   return (
     <React.Fragment>
@@ -130,65 +132,75 @@ function Row(props: { row: ReturnType<typeof createData> }) {
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                History
-              </Typography>
               <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="right">ProjectName</TableCell>
-                    <TableCell align="right">WPShortName</TableCell>
-                    <TableCell align="right">StartDate</TableCell>
-                    <TableCell align="right">EndDate</TableCell>
-                    <TableCell align="right">Contract</TableCell>
-                    <TableCell align="right">Customer</TableCell>
-                    <TableCell align="right">PM</TableCell>
-                    <TableCell align="right">Service Area/Line</TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right"></TableCell>
-                    <TableCell align="right">Project Type</TableCell>
-                    <TableCell align="right">Bill Rate</TableCell>
-                    <TableCell align="right">Curr.</TableCell>
-                    <TableCell align="right">Revenue</TableCell>
-                    <TableCell align="right">Cost</TableCell>
-                    <TableCell align="right">Revenue</TableCell>
-                    <TableCell align="right">Cost</TableCell>
-                    <TableCell align="right">Hours</TableCell>
-                    <TableCell align="right">TSA/MSA</TableCell>
-                    <TableCell align="right">Margin</TableCell>
-                    <TableCell align="right">Revenue</TableCell>
-                    <TableCell align="right">Cost</TableCell>
-                  </TableRow>
-                </TableHead>
                 <TableBody>
-                  {row.history.map((historyRow) => (
+                  {data.calcRev.ctrs.map((ctr) => (
                     <TableRow>
-                      <TableCell align="right">ProjectName</TableCell>
-                      <TableCell align="right">WPShortName</TableCell>
-                      <TableCell align="right">StartDate</TableCell>
-                      <TableCell align="right">EndDate</TableCell>
-                      <TableCell align="right">Contract</TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_ctr_number.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.object_name.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.object_name.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_start_date.value[0].split("T")[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_finish_date.value[0].split("T")[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_ctr_status_code.value[0]}
+                      </TableCell>
+                      {/* CustomerName */}
                       <TableCell align="right">Customer</TableCell>
                       <TableCell align="right">PM</TableCell>
-                      <TableCell align="right">Service Area/Line</TableCell>
+                      {/* ServiceCode */}
+                      <TableCell align="right">
+                        {ctr.ap4_ctr_service_code.value[0]}
+                      </TableCell>
                       <TableCell align="right"></TableCell>
                       <TableCell align="right"></TableCell>
                       <TableCell align="right"></TableCell>
                       <TableCell align="right"></TableCell>
                       <TableCell align="right"></TableCell>
                       <TableCell align="right">Project Type</TableCell>
-                      <TableCell align="right">Bill Rate</TableCell>
-                      <TableCell align="right">Curr.</TableCell>
-                      <TableCell align="right">Revenue</TableCell>
-                      <TableCell align="right">Cost</TableCell>
-                      <TableCell align="right">Revenue</TableCell>
-                      <TableCell align="right">Cost</TableCell>
-                      <TableCell align="right">Hours</TableCell>
-                      <TableCell align="right">TSA/MSA</TableCell>
-                      <TableCell align="right">Margin</TableCell>
+                      {/* billRate */}
+                      <TableCell align="right">
+                        {
+                          ctr.AP4_BudgetCtrRateSchRel.value[0].object_name
+                            .value[0]
+                        }
+                      </TableCell>
+                      <TableCell align="right">
+                        {
+                          ctr.AP4_BudgetCtrRateSchRel.value[0].ap4_currencycode
+                            .value[0]
+                        }
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_refundable_revenue.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_refundable_raw_cost.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_revenue.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_raw_cost.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_hours.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_msa_tsa.value[0]}
+                      </TableCell>
+                      <TableCell align="right">
+                        {ctr.ap4_operating_margin.value[0]} %
+                      </TableCell>
                       <TableCell align="right">Revenue</TableCell>
                       <TableCell align="right">Cost</TableCell>
                     </TableRow>
