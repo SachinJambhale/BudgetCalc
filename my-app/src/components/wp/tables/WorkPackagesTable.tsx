@@ -69,15 +69,6 @@ function createData(
     Margin,
     Revenue2,
     Cost2,
-    history: [
-      {
-        WPNumber,
-        WPName,
-        ProjectShortName,
-        StartDate,
-        EndDate,
-      },
-    ],
   };
 }
 

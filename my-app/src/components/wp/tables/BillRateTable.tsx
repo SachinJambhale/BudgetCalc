@@ -112,7 +112,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
-                            <TableContainer component={Paper}>
+                            <TableContainer>
                                 <Table sx={{ minWidth: 650 }} size="small" aria-label="collapsible table">
                                     <TableBody>
                                         {row.history.map((historyRow) => (
@@ -155,7 +155,7 @@ const rows = [
 ]
 const BillRateTable = () => {
     return (
-        <TableContainer component={Paper}>
+        <TableContainer>
             <Table sx={{ minWidth: 650 }} size="small" aria-label="collapsible table">
                 <TableHead>
                     <TableRow>
