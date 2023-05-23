@@ -131,7 +131,6 @@ function Row(props: { row: ReturnType<typeof createData> }) {
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                History
               </Typography>
               <Table size="small" aria-label="purchases">
                 <TableHead>
@@ -233,34 +232,6 @@ const rows = [
     "Cost"
   ),
   // createData('WP Number', 'WP Name', 'Project Short Name','StartDate', 'EndDate','Status','Contract','Customer','Manager','Service Area Line', 'Billable', 'Chargeble', 'Customer Portal', 'Submit Bill','Type', 'Bill Rate', 'Currancy', 'Revenue', 'Cost', 'Revenue', 'Cost','Hours', 'TSA/MSA', 'Margin', 'Revenue', 'Cost',),
-  createData(
-    "No_Test_1",
-    "Name_Test_1",
-    "Name_Test_1",
-    "2023-04-01",
-    "2023-09-30",
-    "Accepted",
-    "CustRef_text",
-    "Aker BP ASA",
-    "Surname,Forename(signature)",
-    "5520-Transmission & Distribution",
-    "Yes",
-    "Yes",
-    "Hide",
-    "Yes",
-    "Time & material",
-    "CTR-00098302_EUR",
-    "EUR",
-    "3000",
-    "3158",
-    "0",
-    "0",
-    "20",
-    "225",
-    "-13%",
-    "3000",
-    "3383"
-  ),
   createData(
     "No_Test_1",
     "Name_Test_1",
