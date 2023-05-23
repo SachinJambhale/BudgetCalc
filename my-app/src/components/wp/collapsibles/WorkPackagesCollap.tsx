@@ -28,13 +28,13 @@ const WorkPackagesCollap: React.FunctionComponent<IWorkPackagesCollapProps> = (
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
             >
               <Button className="custombtn" sx={{ margin: "10px" }}>
-                Edit
+                EDIT
               </Button>
               <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Additional Fields
+                SHOW ADDITIONAL FIELD
               </Button>
               <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Subtask
+                SHOW SUBTASK
               </Button>
             </Box>
             <WorkPackageTable />
