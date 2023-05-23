@@ -5,8 +5,9 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import obj from "../dummy-data/ctrs.json";
+import obj from "../dummy-data/ctr";
+
+console.log("obj", obj);
 
 interface IWorkPackageTableProps {}
 
@@ -59,7 +60,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.calcRev.ctrs.map((ctr) => (
+            {data.ctrRevision.calcRev.ctrs.map((ctr) => (
               <TableRow>
                 <TableCell>{ctr.ap4_ctr_number.value[0]}</TableCell>
                 <TableCell> {ctr.object_name.value[0]}</TableCell>

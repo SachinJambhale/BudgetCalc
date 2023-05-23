@@ -1,12 +1,10 @@
 import * as React from "react";
-import "./WorkPackageCollap.css";
-import { IconButton } from "@mui/material";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import WorkPackageTable from "../tables/WorkPackageTable";
 import BillRateTable from "../tables/BillRateTable";
+import "./WorkPackageCollapsible.css";
 
 interface IWorkPackagesCollapProps {}
 
@@ -20,7 +18,7 @@ const BillRateCollapsible: React.FunctionComponent<IWorkPackagesCollapProps> = (
       <div>
         <div className="collapsible" onClick={() => setOpen(!open)}>
           <h4 className="icon">{open ? <DownIcon /> : <RightIcon />} </h4>
-          <h4 className="collapseHead">BillRateCollapsible</h4>
+          <h4 className="collapseHead">BILL RATE COLLAPSIBLE</h4>
         </div>
 
         {open && (
