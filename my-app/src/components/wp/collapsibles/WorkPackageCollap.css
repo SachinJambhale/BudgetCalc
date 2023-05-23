@@ -29,6 +29,7 @@
 }
 
 .custombtn {
+  font-size: 12px !important;
   margin-top: 0px !important;
   font-weight: bold !important;
   line-height: 15.96px;
