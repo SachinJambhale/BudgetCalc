@@ -52,30 +52,28 @@ const WorkPackagesCollapsible = () => {
     };
 
   return (
-    <div>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>WORK PACKAGES</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Box sx={{ margin: "5px", display: "flex", justifyContent: "end" }}>
-            <Button sx={{ margin: "10px" }} color="primary" variant="contained">
-              Edit
-            </Button>
-            <Button sx={{ margin: "10px" }} color="primary" variant="contained">
-              Show Additiona Field
-            </Button>
-            <Button sx={{ margin: "10px" }} color="primary" variant="contained">
-              Show Subtask
-            </Button>
-          </Box>
-          <WorkPackagesTable />
-        </AccordionDetails>
-      </Accordion>
-    </div>
+    <Accordion
+      expanded={expanded === "panel1"}
+      onChange={handleChange("panel1")}
+    >
+      <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
+        <Typography>WORK PACKAGES</Typography>
+      </AccordionSummary>
+      <AccordionDetails>
+        <Box sx={{ margin: "5px", display: "flex", justifyContent: "end" }}>
+          <Button sx={{ margin: "10px" }} color="primary" variant="contained">
+            Edit
+          </Button>
+          <Button sx={{ margin: "10px" }} color="primary" variant="contained">
+            Show Additiona Field
+          </Button>
+          <Button sx={{ margin: "10px" }} color="primary" variant="contained">
+            Show Subtask
+          </Button>
+        </Box>
+        <WorkPackagesTable />
+      </AccordionDetails>
+    </Accordion>
   );
 };
 export default WorkPackagesCollapsible;

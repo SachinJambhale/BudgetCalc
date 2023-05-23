@@ -1,0 +1,16 @@
+.rightIcon {
+  width: 10px;
+  height: 11px;
+  background-color: #0f204b;
+  position: relative;
+  clip-path: polygon(0% 0%, 100% 50%, 0% 100%);
+  transition: 0.3s ease-in-out;
+}
+
+.downIcon {
+  width: 10px;
+  height: 11px;
+  background-color: #0f204b;
+  position: relative;
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+}
