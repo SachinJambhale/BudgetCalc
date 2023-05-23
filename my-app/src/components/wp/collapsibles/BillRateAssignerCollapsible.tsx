@@ -100,7 +100,7 @@ const BillRateAssignerCollapsible: React.FunctionComponent<IWorkPackagesCollapPr
       <div>
         <div className="collapsible" onClick={() => setOpen(!open)}>
           <h4 className="icon">{open ? <DownIcon /> : <RightIcon />} </h4>
-          <h4 className="collapseHead">Bill Rate Assigner</h4>
+          <h4 className="collapseHead">BILL RATE ASSIGNER</h4>
         </div>
 
         {open && (
