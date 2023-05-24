@@ -1,0 +1,28 @@
+.td {
+    width: 110px;
+height: 16px;
+
+font-family: 'Segoe UI';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height */
+
+display: flex;
+text-align: center !important;
+
+/* color/neutralPrimary */
+
+color: #464646;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+.t_border {
+    border-color: 1px solid black !important;
+}

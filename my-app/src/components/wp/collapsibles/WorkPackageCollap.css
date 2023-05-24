@@ -39,3 +39,28 @@
   background-color: #0f204b !important;
   color: white !important;
 }
+..td {
+  width: 110px;
+height: 16px;
+
+font-family: 'Segoe UI';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 16px;
+/* identical to box height */
+
+display: flex;
+align-items: center;
+
+/* color/neutralPrimary */
+
+color: #464646;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
