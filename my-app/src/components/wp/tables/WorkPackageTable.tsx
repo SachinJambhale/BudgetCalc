@@ -6,6 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import obj from "../dummy-data/ctr";
+import "./WorkPackageTable.css";
 
 console.log("obj", obj);
 
@@ -15,6 +16,26 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
   props
 ) => {
   const [data, setData] = React.useState(obj);
+  const [topHeader, setTopHeader] = React.useState([
+    "Project Number",
+    "Project Name",
+    "Project Short Name",
+    "Start Date",
+    "End Date",
+    "Status",
+    "Project Type",
+    "Bill Rate",
+    "Curr",
+    "Revenue",
+    "Cost",
+    "Revenue",
+    "Cost",
+    "hours",
+    "TSA/MSA",
+    "Margin",
+    "Revenue",
+    "Cost",
+  ]);
   const [header, setHeader] = React.useState([
     "WP Number",
     "WP Name",
@@ -46,13 +67,20 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
   return (
     <>
       <TableContainer>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <Table
+          className="tborder"
+          sx={{ minWidth: 650 }}
+          aria-label="simple table"
+        >
           <TableHead className="tableHead">
-            <TableRow>
+            <TableRow className="tborder">
               {Array.isArray(header) &&
                 header.map((head) => {
                   return (
-                    <TableCell sx={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+                    <TableCell
+                      className="tborder"
+                      sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                    >
                       {head}
                     </TableCell>
                   );
@@ -61,57 +89,82 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
           </TableHead>
           <TableBody>
             {data.ctrRevision.calcRev.ctrs.map((ctr) => (
-              <TableRow>
-                <TableCell>{ctr.ap4_ctr_number.value[0]}</TableCell>
-                <TableCell> {ctr.object_name.value[0]}</TableCell>
-                <TableCell align="right">{ctr.object_name.value[0]}</TableCell>
-                <TableCell align="right">
+              <TableRow className="tborder">
+                <TableCell className="td tborder">
+                  {ctr.ap4_ctr_number.value[0]}
+                </TableCell>
+                <TableCell className="td tborder">
+                  {" "}
+                  {ctr.object_name.value[0]}
+                </TableCell>
+                <TableCell className="td tborder" align="right">
+                  {ctr.object_name.value[0]}
+                </TableCell>
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_start_date.value[0].split("T")[0]}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_finish_date.value[0].split("T")[0]}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_ctr_status_code.value[0]}
                 </TableCell>
                 {/* CustomerName */}
-                <TableCell align="right">Customer</TableCell>
-                <TableCell align="right">PM</TableCell>
+                <TableCell className="td tborder" align="right">
+                  Customer
+                </TableCell>
+                <TableCell className="td tborder" align="right">
+                  PM
+                </TableCell>
                 {/* ServiceCode */}
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_ctr_service_code.value[0]}
                 </TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right"></TableCell>
-                <TableCell align="right">Project Type</TableCell>
+                <TableCell className="td tborder" align="right"></TableCell>
+                <TableCell className="td tborder" align="right"></TableCell>
+                <TableCell className="td tborder" align="right"></TableCell>
+                <TableCell className="td tborder" align="right"></TableCell>
+                <TableCell className="td tborder" align="right"></TableCell>
+                <TableCell className="td tborder" align="right">
+                  Project Type
+                </TableCell>
                 {/* billRate */}
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {ctr.AP4_BudgetCtrRateSchRel.value[0].object_name.value[0]}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {
                     ctr.AP4_BudgetCtrRateSchRel.value[0].ap4_currencycode
                       .value[0]
                   }
                 </TableCell>
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_refundable_revenue.value[0]}
                 </TableCell>
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_refundable_raw_cost.value[0]}
                 </TableCell>
-                <TableCell align="right">{ctr.ap4_revenue.value[0]}</TableCell>
-                <TableCell align="right">{ctr.ap4_raw_cost.value[0]}</TableCell>
-                <TableCell align="right">{ctr.ap4_hours.value[0]}</TableCell>
-                <TableCell align="right">{ctr.ap4_msa_tsa.value[0]}</TableCell>
-                <TableCell align="right">
+                <TableCell className="td tborder" align="right">
+                  {ctr.ap4_revenue.value[0]}
+                </TableCell>
+                <TableCell className="td tborder" align="right">
+                  {ctr.ap4_raw_cost.value[0]}
+                </TableCell>
+                <TableCell className="td tborder" align="right">
+                  {ctr.ap4_hours.value[0]}
+                </TableCell>
+                <TableCell className="td tborder" align="right">
+                  {ctr.ap4_msa_tsa.value[0]}
+                </TableCell>
+                <TableCell className="td tborder" align="right">
                   {ctr.ap4_operating_margin.value[0]} %
                 </TableCell>
-                <TableCell align="right">Revenue</TableCell>
-                <TableCell align="right">Cost</TableCell>
+                <TableCell className="td tborder" align="right">
+                  Revenue
+                </TableCell>
+                <TableCell className="td tborder" align="right">
+                  Cost
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>

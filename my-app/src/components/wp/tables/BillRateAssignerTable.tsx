@@ -1,18 +1,11 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Collapse from '@mui/material/Collapse';
-import IconButton from '@mui/material/IconButton';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Typography from '@mui/material/Typography';
-import Paper from '@mui/material/Paper';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import "../collapsibles/WorkPackageCollap.css";
+import * as React from "react";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import "../collapsibles/WorkPackageCollapsible.css";
 
 function createData(
   TeamMember: string,
@@ -25,7 +18,6 @@ function createData(
   Customer: string,
   Manager: string,
   ServiceAreaLine: string
-
 ) {
   return {
     TeamMember,
@@ -38,7 +30,6 @@ function createData(
     Customer,
     Manager,
     ServiceAreaLine,
-    
   };
 }
 
@@ -63,53 +54,53 @@ function createData(
 //   );
 // }
 
-const BillRateAssignerTable=() =>{
+const BillRateAssignerTable = () => {
   return (
-    <TableContainer >
+    <TableContainer>
       <Table sx={{ minWidth: 650 }} size="small" aria-label="collapsible table">
         <TableHead>
           <TableRow>
             <TableCell>TeamMember</TableCell>
-               <TableCell align="right">DNV Grade</TableCell>
-               <TableCell align="right">Education Level</TableCell>
-               <TableCell align="right">Years of Development in DNV</TableCell>
-               <TableCell align="right">Bill Rate Table</TableCell>
-              <TableCell align="right">Bill Rate Category</TableCell>
-              <TableCell align="right">Bill Rate Criteria</TableCell>
-              <TableCell align="right">Curr</TableCell>
-              <TableCell align="right">Bill Rate</TableCell>
-              <TableCell align="right">Adjustment</TableCell>
-              <TableCell align="right">Adjusted Bill Rate</TableCell>
-              <TableCell align="right">Valid from</TableCell>
-              <TableCell align="right">Valid To</TableCell>
-              <TableCell align="right">Cost Curr </TableCell>
-              <TableCell align="right">Cost Rate</TableCell>
-              <TableCell align="right">Margin Per Hour</TableCell>
+            <TableCell align="right">DNV Grade</TableCell>
+            <TableCell align="right">Education Level</TableCell>
+            <TableCell align="right">Years of Development in DNV</TableCell>
+            <TableCell align="right">Bill Rate Table</TableCell>
+            <TableCell align="right">Bill Rate Category</TableCell>
+            <TableCell align="right">Bill Rate Criteria</TableCell>
+            <TableCell align="right">Curr</TableCell>
+            <TableCell align="right">Bill Rate</TableCell>
+            <TableCell align="right">Adjustment</TableCell>
+            <TableCell align="right">Adjusted Bill Rate</TableCell>
+            <TableCell align="right">Valid from</TableCell>
+            <TableCell align="right">Valid To</TableCell>
+            <TableCell align="right">Cost Curr </TableCell>
+            <TableCell align="right">Cost Rate</TableCell>
+            <TableCell align="right">Margin Per Hour</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-        <TableRow>
+          <TableRow>
             <TableCell>Einstable</TableCell>
-               <TableCell align="right">10</TableCell>
-               <TableCell align="right">Professor</TableCell>
-               <TableCell align="right">14</TableCell>
-               <TableCell align="right">vijdah123</TableCell>
-              <TableCell align="right">Test[Valid from 2020]</TableCell>
-              <TableCell align="right">-</TableCell>
-              <TableCell align="right">INR</TableCell>
-              <TableCell align="right"></TableCell>
-              <TableCell align="right">500 Amount</TableCell>
-              <TableCell align="right">500.00</TableCell>
-              <TableCell align="right">2022-01-04</TableCell>
-              <TableCell align="right">2023-01-03</TableCell>
-              <TableCell align="right">NOK </TableCell>
-              <TableCell align="right">9,873.95</TableCell>
-              <TableCell align="right">92.50%</TableCell>
+            <TableCell align="right">10</TableCell>
+            <TableCell align="right">Professor</TableCell>
+            <TableCell align="right">14</TableCell>
+            <TableCell align="right">vijdah123</TableCell>
+            <TableCell align="right">Test[Valid from 2020]</TableCell>
+            <TableCell align="right">-</TableCell>
+            <TableCell align="right">INR</TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right">500 Amount</TableCell>
+            <TableCell align="right">500.00</TableCell>
+            <TableCell align="right">2022-01-04</TableCell>
+            <TableCell align="right">2023-01-03</TableCell>
+            <TableCell align="right">NOK </TableCell>
+            <TableCell align="right">9,873.95</TableCell>
+            <TableCell align="right">92.50%</TableCell>
           </TableRow>
         </TableBody>
       </Table>
     </TableContainer>
   );
-}
+};
 
 export default BillRateAssignerTable;

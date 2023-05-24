@@ -79,20 +79,18 @@
 // export default BillRateAssignerCollapsible;
 
 import * as React from "react";
-import "./WorkPackageCollap.css";
-import { IconButton } from "@mui/material";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import WorkPackageTable from "../tables/WorkPackageTable";
 import BillRateAssignerTable from "../tables/BillRateAssignerTable";
+import "./WorkPackageCollapsible.css";
 
 interface IWorkPackagesCollapProps {}
 
-const BillRateAssignerCollapsible: React.FunctionComponent<IWorkPackagesCollapProps> = (
-  props
-) => {
+const BillRateAssignerCollapsible: React.FunctionComponent<
+  IWorkPackagesCollapProps
+> = (props) => {
   const [open, setOpen] = React.useState(false);
 
   return (

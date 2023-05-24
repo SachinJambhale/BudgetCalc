@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
 import WorkPackagesCollapsible from "./collapsibles/WorkPackagesCollapsible";
 import BillRateCollapsible from "./collapsibles/BillRateCollapsible";
+import Stack from "@mui/material/Stack";
 import BillRateAssignerTable from "./tables/BillRateAssignerTable";
 import BillRateAssignerCollapsible from "./collapsibles/BillRateAssignerCollapsible";
 interface IWbsTabViewProps {}
@@ -60,7 +61,7 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
           <TabPanel value={value} index={0}>
             <BillRateCollapsible />
             <WorkPackagesCollapsible />
-            <BillRateAssignerCollapsible/>
+            <BillRateAssignerCollapsible />
           </TabPanel>
           <TabPanel value={value} index={1}>
             VERSION TWO
