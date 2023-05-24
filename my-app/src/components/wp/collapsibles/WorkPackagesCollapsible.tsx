@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./WorkPackageCollap.css";
+import "./WorkPackageCollapsible.css";
 import { IconButton } from "@mui/material";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
@@ -7,9 +7,9 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import WorkPackageTable from "../tables/WorkPackageTable";
 
-interface IWorkPackagesCollapProps {}
+interface IWorkPackageCollapsibleProps {}
 
-const WorkPackagesCollap: React.FunctionComponent<IWorkPackagesCollapProps> = (
+const WorkPackageCollapsible: React.FunctionComponent<IWorkPackageCollapsibleProps> = (
   props
 ) => {
   const [open, setOpen] = React.useState(false);
@@ -45,4 +45,4 @@ const WorkPackagesCollap: React.FunctionComponent<IWorkPackagesCollapProps> = (
   );
 };
 
-export default WorkPackagesCollap;
+export default WorkPackageCollapsible;
