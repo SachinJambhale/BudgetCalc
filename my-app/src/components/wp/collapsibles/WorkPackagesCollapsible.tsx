@@ -21,24 +21,7 @@ const WorkPackagesCollapsible: React.FunctionComponent<
           <h4 className="collapseHead">WORK PACKAGES</h4>
         </div>
 
-        {open && (
-          <Box>
-            <Box
-              sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
-            >
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                Edit
-              </Button>
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Additional Fields
-              </Button>
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Subtask
-              </Button>
-            </Box>
-            <WorkPackageTable />
-          </Box>
-        )}
+        {open && <WorkPackageTable />}
       </div>
     </>
   );

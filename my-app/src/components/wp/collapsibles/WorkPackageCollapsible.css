@@ -32,10 +32,13 @@
   font-weight: bold !important;
   line-height: 15.96px;
   letter-spacing: 5%;
-  color: #0f204b !important;
+  /* color: #0f204b !important; */
+  color: white !important;
+  background-color: #0f204b !important;
 }
 
 .custombtn:hover {
-  background-color: #0f204b !important;
-  color: white !important;
+  /* background-color: #0f204b !important; */
+
+  color: grey !important;
 }
