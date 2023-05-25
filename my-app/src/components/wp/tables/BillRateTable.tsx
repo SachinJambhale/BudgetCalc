@@ -175,6 +175,7 @@ const BillRateTable = () => {
 
                 </TableHead>
                 <TableBody>
+
                     {rows.map((row) => (
                         <Row key={row.RateTableName} row={row} />
 

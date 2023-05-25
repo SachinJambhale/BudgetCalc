@@ -8,13 +8,16 @@ import Button from "@mui/material/Button";
 import BillRateTable from "../tables/BillRateTable";
 import "./WorkPackageCollapsible.css";
 
-interface IWorkPackageCollapsibleProps {}
+interface IWorkPackageCollapsibleProps { }
 
 const BillRateCollapsible: React.FunctionComponent<
   IWorkPackageCollapsibleProps
 > = (props) => {
   const [open, setOpen] = React.useState(false);
-
+  const [enable, setEnable] = React.useState(false);
+  const handleClick = () => {
+    setEnable(true);
+  }
   return (
     <>
       <div>
@@ -28,14 +31,22 @@ const BillRateCollapsible: React.FunctionComponent<
             <Box
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
             >
-              <Button className="custombtn" sx={{ margin: "10px" }}>
+              <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
                 EDIT
               </Button>
               <Button className="custombtn" sx={{ margin: "10px" }}>
                 SHOW INVALID RATES
               </Button>
-              
             </Box>
+            {enable === true ?
+              <Box>
+                <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
+                  Save
+                </Button>
+                <Button className="custombtn" sx={{ margin: "10px" }} onClick={() => setEnable(false)}>
+                  Cancel
+                </Button>
+              </Box> : ''}
             <BillRateTable />
           </Box>
         )}
