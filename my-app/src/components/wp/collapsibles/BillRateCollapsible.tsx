@@ -29,14 +29,12 @@ const BillRateCollapsible: React.FunctionComponent<
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
             >
               <Button className="custombtn" sx={{ margin: "10px" }}>
-                Edit
+                EDIT
               </Button>
               <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Additional Fields
+                SHOW INVALID RATES
               </Button>
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Subtask
-              </Button>
+              
             </Box>
             <BillRateTable />
           </Box>
