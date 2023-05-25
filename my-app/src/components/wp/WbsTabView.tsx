@@ -7,7 +7,6 @@ import { Container } from "@mui/material";
 import WorkPackagesCollapsible from "./collapsibles/WorkPackagesCollapsible";
 import BillRateCollapsible from "./collapsibles/BillRateCollapsible";
 import Stack from "@mui/material/Stack";
-import BillRateAssignerTable from "./tables/BillRateAssignerTable";
 import BillRateAssignerCollapsible from "./collapsibles/BillRateAssignerCollapsible";
 interface IWbsTabViewProps {}
 

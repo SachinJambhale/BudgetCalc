@@ -86,10 +86,10 @@ import Button from "@mui/material/Button";
 import BillRateAssignerTable from "../tables/BillRateAssignerTable";
 import "./WorkPackageCollapsible.css";
 
-interface IWorkPackagesCollapProps {}
+interface IBillRateAssignerCollapsibleProps {}
 
 const BillRateAssignerCollapsible: React.FunctionComponent<
-  IWorkPackagesCollapProps
+  IBillRateAssignerCollapsibleProps
 > = (props) => {
   const [open, setOpen] = React.useState(false);
 
