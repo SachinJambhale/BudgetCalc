@@ -15,8 +15,10 @@ const BillRateCollapsible: React.FunctionComponent<
 > = (props) => {
   const [open, setOpen] = React.useState(false);
   const [enable, setEnable] = React.useState(false);
+  
   const handleClick = () => {
     setEnable(true);
+    
   }
   return (
     <>
@@ -28,12 +30,13 @@ const BillRateCollapsible: React.FunctionComponent<
 
         {open && (
           <Box>
+            
             <Box
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
-            >
+            >{enable===false ? 
               <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
                 EDIT
-              </Button>
+              </Button>:""}
               <Button className="custombtn" sx={{ margin: "10px" }}>
                 SHOW INVALID RATES
               </Button>
