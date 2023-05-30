@@ -1,0 +1,21 @@
+.td {
+  font-size: 10px !important;
+}
+
+.tborder {
+  border: 1px solid #000 !important;
+  text-align: center !important;
+}
+.cells {
+  width: 6rem;
+  height: 1.5rem;
+  text-align: center;
+  font-size: 10px !important;
+  border: 1px solid #000;
+  border-radius: 2px;
+  background-color: transparent;
+}
+.select {
+  width: 5rem !important;
+  height: 2rem !important;
+}
