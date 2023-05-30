@@ -85,6 +85,23 @@ function createData(
 function Row(props: { row: ReturnType<typeof createData> }) {
     const { row } = props;
     const [open, setOpen] = React.useState(false);
+    const [sorting, setSorting] = React.useState({key : "DNVInternalCategory", ascending : true});
+    const [currentUser, setCurrentUser] = React.useState([history]);
+
+    React.useEffect(() => {
+        const currentUserCopy = [...currentUser]
+        const sortedCurrentUser = currentUserCopy.sort(( a: any,b: any ) => {
+            return a[sorting.key].localeCompare(b[sorting.key]);
+        });
+
+        setCurrentUser (sorting.ascending ? sortedCurrentUser : sortedCurrentUser.reverse());
+    }, [currentUser, sorting]);
+
+
+    const applySorting = (key : any, ascending : any) => {
+        setSorting({key: key, ascending: ascending})
+    }
+    
 
     return (
         <React.Fragment>
@@ -113,7 +130,7 @@ function Row(props: { row: ReturnType<typeof createData> }) {
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
                             <TableContainer>
-                                <Table sx={{ minWidth: 650 }} size="small" aria-label="collapsible table">
+                                <Table>
                                     <TableBody>
                                         {row.history.map((historyRow) => (
                                             <TableRow key={historyRow.RateTableName}>
@@ -162,7 +179,8 @@ const BillRateTable = () => {
                         <TableCell />
                         <TableCell align='right'>Rate Table Name</TableCell>
                         <TableCell align='right'>Category Type</TableCell>
-                        <TableCell align='right'>DNV Internal Category</TableCell>
+                        <TableCell align='right' sortDirection = 'asc'>DNV Internal Category</TableCell>
+                        <th>DNV Internal Category</th>
                         <TableCell align='right'>Bill Rate Category</TableCell>
                         <TableCell align='right'>Currency</TableCell>
                         <TableCell align='right'>Bill Rate</TableCell>
@@ -175,7 +193,8 @@ const BillRateTable = () => {
 
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
+
+                {rows.map((row) => (
                         <Row key={row.RateTableName} row={row} />
 
                     ))}

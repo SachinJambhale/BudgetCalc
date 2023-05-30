@@ -5,6 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import { IconButton } from "@mui/material";
 import "../collapsibles/WorkPackageCollapsible.css";
 
 function createData(
@@ -33,33 +34,20 @@ function createData(
   };
 }
 
-// function Row(props: { row: ReturnType<typeof createData> }) {
-//   const { row } = props;
-//   const [open, setOpen] = React.useState(false);
 
-//   return (
-//     <React.Fragment>
-//       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-//         <TableCell>
-//           <IconButton
-//             aria-label="expand row"
-//             size="small"
-//             onClick={() => setOpen(!open)}
-//           >
-//             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-//           </IconButton>
-//         </TableCell>
-//       </TableRow>
-//     </React.Fragment>
-//   );
-// }
+interface IAppProps {
+  enable:boolean
+}
 
-const BillRateAssignerTable = () => {
-  return (
-    <TableContainer>
+const BillRateAssignerTable: React.FunctionComponent<IAppProps> = ({enable}) => {
+  return <>
+  
+  
+  <TableContainer >
       <Table sx={{ minWidth: 650 }} size="small" aria-label="collapsible table">
         <TableHead>
-          <TableRow>
+          <TableRow>   
+           {enable === true ? <TableCell></TableCell> : ''}
             <TableCell>TeamMember</TableCell>
             <TableCell align="right">DNV Grade</TableCell>
             <TableCell align="right">Education Level</TableCell>
@@ -79,28 +67,35 @@ const BillRateAssignerTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell>Einstable</TableCell>
-            <TableCell align="right">10</TableCell>
-            <TableCell align="right">Professor</TableCell>
-            <TableCell align="right">14</TableCell>
-            <TableCell align="right">vijdah123</TableCell>
-            <TableCell align="right">Test[Valid from 2020]</TableCell>
-            <TableCell align="right">-</TableCell>
-            <TableCell align="right">INR</TableCell>
-            <TableCell align="right"></TableCell>
-            <TableCell align="right">500 Amount</TableCell>
-            <TableCell align="right">500.00</TableCell>
-            <TableCell align="right">2022-01-04</TableCell>
-            <TableCell align="right">2023-01-03</TableCell>
-            <TableCell align="right">NOK </TableCell>
-            <TableCell align="right">9,873.95</TableCell>
-            <TableCell align="right">92.50%</TableCell>
+        <TableRow>
+        {enable === true ? 
+            <TableCell><IconButton size="small"  />
+
+            </TableCell>
+            :''}
+            <TableCell >Einstable</TableCell>
+               <TableCell align="right">10</TableCell>
+               <TableCell align="right">Professor</TableCell>
+               <TableCell align="right">14</TableCell>
+               <TableCell align="right">vijdah123</TableCell>
+              <TableCell align="right">Test[Valid from 2020]</TableCell>
+              <TableCell align="right">-</TableCell>
+              <TableCell align="right">INR</TableCell>
+              <TableCell align="right"></TableCell>
+              <TableCell align="right">500 Amount</TableCell>
+              <TableCell align="right">500.00</TableCell>
+              <TableCell align="right">2022-01-04</TableCell>
+              <TableCell align="right">2023-01-03</TableCell>
+              <TableCell align="right">NOK </TableCell>
+              <TableCell align="right">9,873.95</TableCell>
+              <TableCell align="right">92.50%</TableCell>
           </TableRow>
         </TableBody>
       </Table>
-    </TableContainer>
-  );
+    </TableContainer></> ;
 };
 
 export default BillRateAssignerTable;
+
+
+

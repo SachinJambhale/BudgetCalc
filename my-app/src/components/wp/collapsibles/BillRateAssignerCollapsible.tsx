@@ -79,11 +79,13 @@
 // export default BillRateAssignerCollapsible;
 
 import * as React from "react";
+import { IconButton } from "@mui/material";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import BillRateAssignerTable from "../tables/BillRateAssignerTable";
+import "./WorkPackageCollapsible.css";
 import "./WorkPackageCollapsible.css";
 
 interface IBillRateAssignerCollapsibleProps {}
@@ -92,6 +94,11 @@ const BillRateAssignerCollapsible: React.FunctionComponent<
   IBillRateAssignerCollapsibleProps
 > = (props) => {
   const [open, setOpen] = React.useState(false);
+  const [enable, setEnable] = React.useState(false);
+
+  const handleClick = () => {
+    setEnable(true);
+  }
 
   return (
     <>
@@ -106,7 +113,7 @@ const BillRateAssignerCollapsible: React.FunctionComponent<
             <Box
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
             >
-              <Button className="custombtn" sx={{ margin: "10px" }}>
+              <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
                 Edit
               </Button>
               <Button className="custombtn" sx={{ margin: "10px" }}>
@@ -116,7 +123,16 @@ const BillRateAssignerCollapsible: React.FunctionComponent<
                 Show Subtask
               </Button>
             </Box>
-            <BillRateAssignerTable />
+            {enable === true ? 
+            <Box>
+            <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
+                Save
+              </Button>
+              <Button className="custombtn" sx={{ margin: "10px" }} onClick={()=>setEnable(false) }>
+                Cancel
+              </Button>
+              </Box> : ''}
+            <BillRateAssignerTable enable={enable}/>
           </Box>
         )}
       </div>
