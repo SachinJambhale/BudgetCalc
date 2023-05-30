@@ -12,79 +12,79 @@ import Paper from '@mui/material/Paper';
 import DownIcon from '@mui/icons-material/ArrowDropDown';
 import RightIcon from '@mui/icons-material/ArrowRight';
 import "./WorkPackageTable.css";
-function createData(
-    RateTableName: string,
-    CategoryType: string,
-    DNVInternalCategory: string,
-    BillRateCategory: string,
-    Currency: string,
-    BillRate: string,
-    BillRateCriteria: string,
-    ExpStart: string,
-    ExpEnd: string,
-    Validfrom: string,
-    Validto: string,
+// function createData(
+//     RateTableName: string,
+//     CategoryType: string,
+//     DNVInternalCategory: string,
+//     BillRateCategory: string,
+//     Currency: string,
+//     BillRate: string,
+//     BillRateCriteria: string,
+//     ExpStart: string,
+//     ExpEnd: string,
+//     Validfrom: string,
+//     Validto: string,
 
-) {
-    return {
-        RateTableName,
-        CategoryType,
-        DNVInternalCategory,
-        BillRateCategory,
-        Currency,
-        BillRate,
-        BillRateCriteria,
-        ExpStart,
-        ExpEnd,
-        Validfrom,
-        Validto,
-        history: [
-            {
-                RateTableName: "",
-                CategoryType: "",
-                DNVInternalCategory: 'Prof.asd',
-                BillRateCategory: "Professional",
-                Currency: "EUR",
-                BillRate: "300",
-                BillRateCriteria: "classtestprof",
-                ExpStart: "2",
-                ExpEnd: "4",
-                Validfrom: "20/05/23",
-                Validto: "30/05/23"
-            },
-            {
-                RateTableName: "",
-                CategoryType: "",
-                DNVInternalCategory: 'Sen.asd',
-                BillRateCategory: "Senior",
-                Currency: "EUR",
-                BillRate: "300",
-                BillRateCriteria: "classtestprof",
-                ExpStart: "2",
-                ExpEnd: "4",
-                Validfrom: "20/05/23",
-                Validto: "30/05/23"
-            },
-            {
-                RateTableName: "",
-                CategoryType: "",
-                DNVInternalCategory: 'Prin.asd',
-                BillRateCategory: "Principal",
-                Currency: "EUR",
-                BillRate: "300",
-                BillRateCriteria: "classtestprof",
-                ExpStart: "2",
-                ExpEnd: "4",
-                Validfrom: "20/05/23",
-                Validto: "30/05/23"
-            },
-        ],
-    };
-}
+// ) {
+//     return {
+//         RateTableName,
+//         CategoryType,
+//         DNVInternalCategory,
+//         BillRateCategory,
+//         Currency,
+//         BillRate,
+//         BillRateCriteria,
+//         ExpStart,
+//         ExpEnd,
+//         Validfrom,
+//         Validto,
+//         history: [
+//             {
+//                 RateTableName: "",
+//                 CategoryType: "",
+//                 DNVInternalCategory: 'Prof.asd',
+//                 BillRateCategory: "Professional",
+//                 Currency: "EUR",
+//                 BillRate: "300",
+//                 BillRateCriteria: "classtestprof",
+//                 ExpStart: "2",
+//                 ExpEnd: "4",
+//                 Validfrom: "20/05/23",
+//                 Validto: "30/05/23"
+//             },
+//             {
+//                 RateTableName: "",
+//                 CategoryType: "",
+//                 DNVInternalCategory: 'Sen.asd',
+//                 BillRateCategory: "Senior",
+//                 Currency: "EUR",
+//                 BillRate: "300",
+//                 BillRateCriteria: "classtestprof",
+//                 ExpStart: "2",
+//                 ExpEnd: "4",
+//                 Validfrom: "20/05/23",
+//                 Validto: "30/05/23"
+//             },
+//             {
+//                 RateTableName: "",
+//                 CategoryType: "",
+//                 DNVInternalCategory: 'Prin.asd',
+//                 BillRateCategory: "Principal",
+//                 Currency: "EUR",
+//                 BillRate: "300",
+//                 BillRateCriteria: "classtestprof",
+//                 ExpStart: "2",
+//                 ExpEnd: "4",
+//                 Validfrom: "20/05/23",
+//                 Validto: "30/05/23"
+//             },
+//         ],
+//     };
+// }
 
-function Row(props: { row: ReturnType<typeof createData> }) {
-    const { row } = props;
-    const [open, setOpen] = React.useState(false);
+// function Row(props: { row: ReturnType<typeof createData> }) {
+//     const { row } = props;
+//     const [open, setOpen] = React.useState(false);
     // const [sorting, setSorting] = React.useState({key : "DNVInternalCategory", ascending : true});
     // const [currentUser, setCurrentUser] = React.useState([history]);
 
@@ -166,15 +166,16 @@ function Row(props: { row: ReturnType<typeof createData> }) {
     //         </TableRow>
     //     </React.Fragment>
     // );
-}
+// }
 
-const rows = [
-    createData('Lorem Ipsum', 'Internal', " ", " ", 'EUR', " ", " ", " ", "", " ", " "),
-    createData('Lorem Ipsum', 'Internal', " ", " ", 'EUR', " ", " ", "", " ", " ", " ")
-]
+// const rows = [
+//     createData('Lorem Ipsum', 'Internal', " ", " ", 'EUR', " ", " ", " ", "", " ", " "),
+//     createData('Lorem Ipsum', 'Internal', " ", " ", 'EUR', " ", " ", "", " ", " ", " ")
+// ]
 
 const BillRateTable = () => {
     const [open, setOpen] = React.useState(false);
+    
     return (
         <TableContainer className="tborder"
         sx={{ minWidth: 650 }}
@@ -222,10 +223,53 @@ const BillRateTable = () => {
                 </TableHead>
                 <TableBody>
 
-                {rows.map((row) => (
-                        <tr key={row.RateTableName}/>
+               <tr>
+                <td><IconButton
+                        aria-label="expand row"
+                        size="small"
+                       onClick={() => setOpen(!open)}
+                    >
+                     {open ? <DownIcon /> : <RightIcon />}
+                  </IconButton></td>
+                <td>Lorem Ipsum</td>
+                <td>Internal</td>
+                <td></td>
+                <td></td>
+                <td>EUR</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
 
-                    ))}
+               </tr>
+               <tr>
+               <td></td>
+                <td>Internal</td>
+                <td>Prof.asd</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               </tr>
+               <tr>
+               <td></td>
+                <td>Internal</td>
+                <td>Prof.asd</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+               </tr>
                 </TableBody>
             </Table>
         </TableContainer>
