@@ -3,7 +3,7 @@ import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import WorkPackageTable from "../tables/WorkPackageTable";
+import WorkPackage from "../tables/WorkPackage";
 import "./WorkPackageCollapsible.css";
 
 interface IWorkPackagesCollapsibleProps {}
@@ -21,7 +21,7 @@ const WorkPackagesCollapsible: React.FunctionComponent<
           <h4 className="collapseHead">WORK PACKAGES</h4>
         </div>
 
-        {open && <WorkPackageTable />}
+        {open && <WorkPackage />}
       </div>
     </>
   );
