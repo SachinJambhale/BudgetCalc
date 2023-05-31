@@ -14,3 +14,16 @@
   position: relative;
   clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
 }
+.DuplicateIcon {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 10px;
+  height: 10px;
+  border: 2px solid transparent;
+  border-bottom: 4px solid transparent;
+  box-shadow: 0 0 0 2px,inset 0 -2px 0 0;
+  margin-left: -4px;
+  margin-top: 4px
+ }
