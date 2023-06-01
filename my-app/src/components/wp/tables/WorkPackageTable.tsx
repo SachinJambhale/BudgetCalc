@@ -162,15 +162,11 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
         </Button>
       </Box>
       <TableContainer>
-        <Table
-          className="tborder"
-          sx={{ minWidth: 650 }}
-          aria-label="simple table"
-        >
-          <TableHead className="tableHead">
-          <tr className="tborder">
-          <th className="tborder" colSpan={9}></th>
-          {/* <th className="tborder"></th>
+        <Table className="table">
+          <TableHead className="head">
+            <tr className="tborder">
+              <th className="tborder" colSpan={9}></th>
+              {/* <th className="tborder"></th>
           <th className="tborder"></th>
           <th className="tborder"></th>
           <th className="tborder"></th>
@@ -178,16 +174,16 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
           <th className="tborder"></th>
           <th className="tborder"></th>
           <th className="tborder"></th> */}
-          <th className="tborder" colSpan={2}>Total</th>
-          <th className="tborder" colSpan={3}>Total</th>
-          {/* <th className="tborder">Revenue</th>
+              <th className="tborder" colSpan={2}>Total</th>
+              <th className="tborder" colSpan={3}>Total</th>
+              {/* <th className="tborder">Revenue</th>
           <th className="tborder">Cost</th> */}
-          <th className="tborder" colSpan={4}>Hours</th>
-          {/* <th className="tborder">TSAMSA</th>
+              <th className="tborder" colSpan={4}>Hours</th>
+              {/* <th className="tborder">TSAMSA</th>
           <th className="tborder">Margin</th>
           <th className="tborder">Revenue</th>
           <th className="tborder">Cost</th> */}
-          </tr>
+            </tr>
             <TableRow>
               {Array.isArray(header) &&
                 header.map((head) => {
@@ -215,7 +211,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                 })}
             </TableRow>
           </TableHead>
-          <TableHead className="tableHead">
+          <TableHead className="head">
             <TableRow>
               {Array.isArray(header) &&
                 header.map((head) => {
@@ -243,14 +239,13 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                 })}
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className="body">
             {tempData.ctrRevision.calcRev.ctrs.map((ctr: any, index: any) => (
               <TableRow key={index}>
                 <TableCell
                   className={`td tborder ${editMode ? "editable" : ""}`}
                   align="right"
                 >
-
                   {editMode ? (
                     <input
                       className="cells"

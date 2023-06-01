@@ -41,5 +41,17 @@ input[type=text]:focus {
   display: table;
     border-collapse: collapse;
     border-spacing: 0;
-    min-width: 650px;
 }
+.table{
+  width:2200px;
+  height:300px;
+}
+.head{
+  width:2198px;
+  height:84px;
+}
+.body{
+  width:2198px;
+  height:153px;
+}
+   
