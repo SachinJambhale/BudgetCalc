@@ -168,6 +168,26 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
           aria-label="simple table"
         >
           <TableHead className="tableHead">
+          <tr className="tborder">
+          <th className="tborder">WP Number</th>
+          <th className="tborder">WP Name</th>
+          <th className="tborder">Project Short Name</th>
+          <th className="tborder">StartDate</th>
+          <th className="tborder">EndDate</th>
+          <th className="tborder">Status</th>
+          <th className="tborder">Type</th>
+          <th className="tborder">BillRate</th>
+          <th className="tborder">Curr</th>
+          <th className="tborder" colSpan={2}>Total</th>
+          <th className="tborder">Cost</th>
+          <th className="tborder">Revenue</th>
+          <th className="tborder">Cost</th>
+          <th className="tborder" colSpan={4}>Hours</th>
+          {/* <th className="tborder">TSAMSA</th>
+          <th className="tborder">Margin</th>
+          <th className="tborder">Revenue</th>
+          <th className="tborder">Cost</th> */}
+          </tr>
             <TableRow>
               {Array.isArray(header) &&
                 header.map((head) => {
