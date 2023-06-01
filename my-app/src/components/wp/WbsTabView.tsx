@@ -63,7 +63,7 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
             <ProjectBillRateCollapsible/>
             <WorkPackagesCollapsible />
             <BillRateAssignerCollapsible/>
-            <Demo/>
+            
           </TabPanel>
           <TabPanel value={value} index={1}>
             VERSION TWO
