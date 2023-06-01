@@ -11,11 +11,35 @@
   height: 1.5rem;
   text-align: center;
   font-size: 10px !important;
-  border: 1px solid #000;
-  border-radius: 2px;
+  border: none;
+ 
   background-color: transparent;
 }
+
 .select {
   width: 5rem !important;
   height: 2rem !important;
+}
+.input{
+  
+  border: none;
+  appearance: none;
+  border-style: none;
+ 
+  outline: none;
+  
+}
+input[type=text]:focus {
+  outline:  auto 1px;
+    outline-color:none ;
+    outline-style:none ;
+    outline-width:none ;
+}
+.cont{
+  width: 100%;
+  overflow-x: auto;
+  display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    min-width: 650px;
 }

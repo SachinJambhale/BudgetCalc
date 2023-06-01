@@ -6,11 +6,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import "./WorkPackageTable.css";
-import { Box, Button } from "@mui/material";
+import { Box, Button, TextField } from "@mui/material";
 import obj1 from "../dummy-data/ctr";
 
 let obj = obj1;
-interface IWorkPackageTableProps {}
+interface IWorkPackageTableProps { }
 
 const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
   props
@@ -161,13 +161,40 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
           Show Subtask
         </Button>
       </Box>
-
       <TableContainer>
         <Table
           className="tborder"
           sx={{ minWidth: 650 }}
           aria-label="simple table"
         >
+          <TableHead className="tableHead">
+            <TableRow>
+              {Array.isArray(header) &&
+                header.map((head) => {
+                  if (
+                    !showAdditionalFields &&
+                    (head === "Contract" ||
+                      head === "Customer" ||
+                      head === "Manager" ||
+                      head === "Service Area Line" ||
+                      head === "Billable" ||
+                      head === "Chargeble" ||
+                      head === "CustomerPortal" ||
+                      head === "SubmitBillRates")
+                  ) {
+                    return null; // Hide the column
+                  }
+                  return (
+                    <TableCell
+                      className="tborder"
+                      sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                    >
+                      {head}
+                    </TableCell>
+                  );
+                })}
+            </TableRow>
+          </TableHead>
           <TableHead className="tableHead">
             <TableRow>
               {Array.isArray(header) &&
@@ -203,6 +230,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   className={`td tborder ${editMode ? "editable" : ""}`}
                   align="right"
                 >
+
                   {editMode ? (
                     <input
                       className="cells"
@@ -214,6 +242,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   ) : (
                     ctr.ap4_ctr_number.value[0]
                   )}
+
                 </TableCell>
 
                 <TableCell

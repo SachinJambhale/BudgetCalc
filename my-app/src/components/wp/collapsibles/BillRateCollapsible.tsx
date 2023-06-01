@@ -14,42 +14,48 @@ const BillRateCollapsible: React.FunctionComponent<
   IWorkPackageCollapsibleProps
 > = (props) => {
   const [open, setOpen] = React.useState(false);
-  const [enable, setEnable] = React.useState(false);
-  
-  const handleClick = () => {
-    setEnable(true);
-    
-  }
+  const [editing, setEditing] = React.useState(false);
+  const handleEdit = () => {
+    setEditing(true);
+  };
+  const handleSave = () => {
+    // Logic to save the changes
+    setEditing(false);
+  };
+  const handleCancel = () => {
+    // Logic to cancel the changes
+    setEditing(false);
+  };
   return (
     <>
       <div>
         <div className="collapsible" onClick={() => setOpen(!open)}>
           <h4 className="icon">{open ? <DownIcon /> : <RightIcon />} </h4>
-          <h4 className="collapseHead">BILL RATE</h4>
+          <h4 className="collapseHead">BILLRATE</h4>
         </div>
-
         {open && (
           <Box>
-            
             <Box
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
-            >{enable===false ? 
-              <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
-                EDIT
-              </Button>:""}
+            >
+              {!editing ? (
+                <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleEdit}>
+                  EDIT
+                </Button>
+              ) : (
+                <>
+                  <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleSave}>
+                    SAVE
+                  </Button>
+                  <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleCancel}>
+                    CANCEL
+                  </Button>
+                </>
+              )}
               <Button className="custombtn" sx={{ margin: "10px" }}>
                 SHOW INVALID RATES
               </Button>
             </Box>
-            {enable === true ?
-              <Box>
-                <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
-                  Save
-                </Button>
-                <Button className="custombtn" sx={{ margin: "10px" }} onClick={() => setEnable(false)}>
-                  Cancel
-                </Button>
-              </Box> : ''}
             <BillRateTable />
           </Box>
         )}
@@ -57,5 +63,4 @@ const BillRateCollapsible: React.FunctionComponent<
     </>
   );
 };
-
 export default BillRateCollapsible;
