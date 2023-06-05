@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import "./WorkPackageTable.css";
 import { Box, Button, TextField } from "@mui/material";
 import obj1 from "../dummy-data/ctr";
-
+//import { DataGrid,StickyTableCell} from "@mui/x-data-grid";
 let obj = obj1;
 interface IWorkPackageTableProps { }
 
@@ -197,26 +197,28 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
       <TableContainer>
         <Table className="table">
           <TableHead className="head">
-            <tr className="tborder">
+            <tr>
               <th className="tborder" colSpan={9}></th>
               {/* <th className="tborder"></th>
-          <th className="tborder"></th>
-          <th className="tborder"></th>
-          <th className="tborder"></th>
-          <th className="tborder"></th>
-          <th className="tborder"></th>
-          <th className="tborder"></th>
-          <th className="tborder"></th> */}
+              <th className="tborder"></th>
+              <th className="tborder"></th>
+              <th className="tborder"></th>
+              <th className="tborder"></th>
+              <th className="tborder"></th>
+              <th className="tborder"></th>
+              <th className="tborder"></th> */}
               <th className="tborder" colSpan={2}>Total</th>
               <th className="tborder" colSpan={3}>Total</th>
               {/* <th className="tborder">Revenue</th>
-          <th className="tborder">Cost</th> */}
+              <th className="tborder">Cost</th> */}
               <th className="tborder" colSpan={4}>Hours</th>
               {/* <th className="tborder">TSAMSA</th>
-          <th className="tborder">Margin</th>
-          <th className="tborder">Revenue</th>
-          <th className="tborder">Cost</th> */}
+              <th className="tborder">Margin</th>
+              <th className="tborder">Revenue</th>
+              <th className="tborder">Cost</th> */}
             </tr>
+            </TableHead>
+            <TableHead className="head">
             <TableRow>
               {Array.isArray(header) &&
                 header.map((head) => {
@@ -235,7 +237,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   }
                   return (
                     <TableCell
-                      className="tborder"
+                      className={head=="WP Number" ? "stickyCell tborder":"tborder"}
                       sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                     >
                       {head}
@@ -263,7 +265,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   }
                   return (
                     <TableCell
-                      className="tborder"
+                      className={head=="WP Number" ? "stickyCell tborder":"tborder"}
                       sx={{ fontSize: "0.9rem", fontWeight: "bold" }}
                     >
                       {head}
@@ -275,11 +277,8 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
           <TableBody className="body">
             {tempData.ctrRevision.calcRev.ctrs.map((ctr: any, index: any) => (
               <TableRow key={index}>
-                <TableCell
-                  className={`td tborder ${editMode ? "editable" : ""}`}
-                ></TableCell>
-                <TableCell
-                  className={`td tborder ${editMode ? "editable" : ""}`}
+                <TableCell 
+                  className={`td tborder stickyCell ${editMode ? "editable" : ""}`}
                   align="right"
                 >
                   {editMode ? (
@@ -296,8 +295,8 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
 
                 </TableCell>
 
-                <TableCell
-                  className={`td tborder ${editMode ? "editable" : ""}`}
+                <TableCell 
+                  className={`td tborder stickyCell ${editMode ? "editable" : ""}`}
                   align="right"
                 >
                   {editMode ? (
@@ -313,7 +312,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   )}
                 </TableCell>
                 <TableCell
-                  className={`td tborder ${editMode ? "editable" : ""}`}
+                  className={`td tborder stickyCell1 ${editMode ? "editable" : ""}`}
                   align="right"
                 >
                   {editMode ? (
@@ -329,7 +328,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   )}
                 </TableCell>
                 <TableCell
-                  className={`td tborder ${editMode ? "editable" : ""}`}
+                  className={`td tborder stickyCell1 ${editMode ? "editable" : ""}`}
                   align="right"
                 >
                   {editMode ? (
