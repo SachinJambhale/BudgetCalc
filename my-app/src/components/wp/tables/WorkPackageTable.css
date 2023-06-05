@@ -1,21 +1,28 @@
-.td {
+/* .td {
   font-size: 10px !important;
+  height: 35px !important;
+  width: 5rem !important;
+} */
+
+table {
+  border-collapse: collapse;
 }
 
-.tborder {
-  border: 1px solid #000 !important;
-  text-align: center !important;
-}
-.cells {
-  width: 6rem;
-  height: 1.5rem;
+td,
+th {
+  font-size: 10px !important;
+  height: 27px !important;
+  width: 35rem !important;
   text-align: center;
+  border: 1px solid #000;
+  padding: 0.5rem;
+}
+/* td {
   font-size: 10px !important;
   border: none;
  
   background-color: transparent;
 }
-
 .select {
   width: 5rem !important;
   height: 2rem !important;

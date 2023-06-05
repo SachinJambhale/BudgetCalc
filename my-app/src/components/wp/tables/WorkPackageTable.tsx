@@ -23,7 +23,38 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
   const [showAdditionalFields, setShowAdditionalFields] = React.useState(false);
 
   const [tempData, setTempData] = React.useState(copiedObject);
+  const header1 = [
+    "pooja",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "External Fee",
+    "",
+    "Refundable Expenses",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    ,
+    "Total",
+  ];
+
   const [header, setHeader] = React.useState([
+    "",
     "WP Number",
     "WP Name",
     "Project Short Name",
@@ -61,14 +92,14 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
     setEditMode(false);
   };
 
-  console.log(
-    "temp",
-    tempData.ctrRevision.calcRev.ctrs[0].ap4_ctr_number.value
-  );
-  console.log(
-    "initial",
-    initialData.ctrRevision.calcRev.ctrs[0].ap4_ctr_number.value
-  );
+  // console.log(
+  //   "temp",
+  //   tempData.ctrRevision.calcRev.ctrs[0].ap4_ctr_number.value
+  // );
+  // console.log(
+  //   "initial",
+  //   initialData.ctrRevision.calcRev.ctrs[0].ap4_ctr_number.value
+  // );
 
   const handleCancel = () => {
     const copiedObject1 = _.cloneDeep(initialData);
@@ -98,15 +129,17 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
     tempData.ctrRevision.calcRev.ctrs[index][name].value[0] = value;
 
     setTempData({ ...tempData });
-    // console.log(
-    //   "initialData",
-    //   initialData.ctrRevision.calcRev.ctrs[index].ap4_billable.value
-    // );
-    // console.log(
-    //   "Temp",
-    //   tempData.ctrRevision.calcRev.ctrs[index].ap4_billable.value
-    // );
+    console.log(
+      "initialData",
+      initialData.ctrRevision.calcRev.ctrs[index].ap4_is_fixed_price.value
+    );
+    console.log(
+      "Temp",
+      tempData.ctrRevision.calcRev.ctrs[index].ap4_is_fixed_price.value
+    );
   };
+  console.log("initialData", initialData);
+  console.log("Temp", tempData);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     e.preventDefault();
@@ -244,6 +277,9 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
               <TableRow key={index}>
                 <TableCell
                   className={`td tborder ${editMode ? "editable" : ""}`}
+                ></TableCell>
+                <TableCell
+                  className={`td tborder ${editMode ? "editable" : ""}`}
                   align="right"
                 >
                   {editMode ? (
@@ -324,20 +360,32 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                     ctr.ap4_finish_date.value[0].split("T")[0]
                   )}
                 </TableCell>
-                <TableCell
-                  className={`td tborder ${editMode ? "editable" : ""}`}
-                  align="right"
-                >
+                <TableCell className="td tborder" align="right">
                   {editMode ? (
-                    <input
-                      className="cells"
+                    <select
                       name={ctr.ap4_ctr_status_code.name}
-                      type="text"
+                      onChange={(e) => handleSelectChange(e, index)}
                       value={ctr.ap4_ctr_status_code.value[0]}
-                      onChange={(e) => handleChange(e, index)}
-                    />
+                    >
+                      <option value="Draft">Draft</option>
+                      <option value="Proposed">Proposed</option>
+                      <option value="Accepted">Accepted</option>
+                      <option value="Cancelled">Cancelled</option>
+                      <option value="Completed">Completed</option>
+                    </select>
                   ) : (
-                    ctr.ap4_ctr_status_code.value[0]
+                    <select
+                      disabled
+                      name={ctr.ap4_ctr_status_code.name}
+                      onChange={(e) => handleSelectChange(e, index)}
+                      value={ctr.ap4_ctr_status_code.value[0]}
+                    >
+                      <option value="Draft">Draft</option>
+                      <option value="Proposed">Proposed</option>
+                      <option value="Accepted">Accepted</option>
+                      <option value="Cancelled">Cancelled</option>
+                      <option value="Completed">Completed</option>
+                    </select>
                   )}
                 </TableCell>
                 {showAdditionalFields && (
@@ -423,18 +471,18 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                   <TableCell className="td tborder" align="right">
                     {editMode ? (
                       <select
-                        name={ctr.ap4_chargeable.name}
+                        name={ctr.ap4_hide_ctr.name}
                         onChange={(e) => handleSelectChange(e, index)}
-                        value={ctr.ap4_chargeable.value[0]}
+                        value={ctr.ap4_hide_ctr.value[0]}
                       >
                         <option value="true">Show</option>
                         <option value="false">Hide</option>
                       </select>
                     ) : (
                       <select
-                        name={ctr.ap4_chargeable.name}
+                        name={ctr.ap4_hide_ctr.name}
                         disabled
-                        value={ctr.ap4_chargeable.value[0]}
+                        value={ctr.ap4_hide_ctr.value[0]}
                       >
                         <option value="true">Show</option>
                         <option value="false">Hide</option>
@@ -444,11 +492,47 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
                 )}
                 {showAdditionalFields && (
                   <TableCell className="td tborder" align="right">
-                    SubmitBillRates
+                    {editMode ? (
+                      <select
+                        name={ctr.ap4_submit_bill_rates_to_of.name}
+                        onChange={(e) => handleSelectChange(e, index)}
+                        value={ctr.ap4_submit_bill_rates_to_of.value[0]}
+                      >
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    ) : (
+                      <select
+                        name={ctr.ap4_submit_bill_rates_to_of.name}
+                        disabled
+                        value={ctr.ap4_submit_bill_rates_to_of.value[0]}
+                      >
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                      </select>
+                    )}
                   </TableCell>
                 )}
                 <TableCell className="td tborder" align="right">
-                  Type
+                  {editMode ? (
+                    <select
+                      name={ctr.ap4_is_fixed_price.name}
+                      onChange={(e) => handleSelectChange(e, index)}
+                      value={ctr.ap4_is_fixed_price.value[0]}
+                    >
+                      <option value="true">Fixed Price</option>
+                      <option value="false">Time & material</option>
+                    </select>
+                  ) : (
+                    <select
+                      name={ctr.ap4_is_fixed_price.name}
+                      disabled
+                      value={ctr.ap4_is_fixed_price.value[0]}
+                    >
+                      <option value="true">Fixed Price</option>
+                      <option value="false">Time & material</option>
+                    </select>
+                  )}
                 </TableCell>
                 <TableCell
                   className={`td tborder ${editMode ? "editable" : ""}`}
