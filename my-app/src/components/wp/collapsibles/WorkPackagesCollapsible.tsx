@@ -5,7 +5,7 @@ import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import WorkPackageTable from "../tables/WorkPackageTable";
+import WorkPackage from "../tables/WorkPackage";
 
 interface IWorkPackageCollapsibleProps {}
 
@@ -37,7 +37,7 @@ const WorkPackageCollapsible: React.FunctionComponent<IWorkPackageCollapsiblePro
                 SHOW SUBTASK
               </Button>
             </Box>
-            <WorkPackageTable />
+            <WorkPackage />
           </Box>
         )}
       </div>
