@@ -124,23 +124,20 @@
 
 // export default ProjectBillRate;
 
-
-import * as React from "react";
+import React, { useState } from "react";
 import "./WorkPackageCollapsible.css";
-import { IconButton } from "@mui/material";
-import DownIcon from "../Icons/DownIcon";
-import RightIcon from "../Icons/RightIcon";
+import IconButton from "@mui/material/IconButton";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import DownIcon from "../Icons/DownIcon";
+import RightIcon from "../Icons/RightIcon";
 import ProjectBillRateTable from "../tables/ProjectBillRateTable";
 
 interface IProjectBillRateProps {}
 
-const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = (
-  props
-) => {
-  const [open, setOpen] = React.useState(false);
-  const [editing, setEditing] = React.useState(false);
+const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = () => {
+  const [isCollapsibleOpen, setCollapsibleOpen] = useState(false);
+  const [isEditing, setEditing] = useState(false);
 
   const handleEdit = () => {
     setEditing(true);
@@ -156,20 +153,26 @@ const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = (
     setEditing(false);
   };
 
+  const handleCollapsibleClick = () => {
+    setCollapsibleOpen(!isCollapsibleOpen);
+  };
+
+  // ...
+
   return (
     <>
       <div>
-        <div className="collapsible" onClick={() => setOpen(!open)}>
-          <h4 className="icon">{open ? <DownIcon /> : <RightIcon />} </h4>
+        <div className="collapsible" onClick={handleCollapsibleClick}>
+          <h4 className="icon">{isCollapsibleOpen ? <DownIcon /> : <RightIcon />} </h4>
           <h4 className="collapseHead">PROJECTBILLRATE</h4>
         </div>
 
-        {open && (
+        {isCollapsibleOpen && (
           <Box>
             <Box
               sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
             >
-              {!editing ? (
+              {!isEditing ? (
                 <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleEdit}>
                   EDIT
                 </Button>
@@ -196,3 +199,5 @@ const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = (
 };
 
 export default ProjectBillRate;
+
+

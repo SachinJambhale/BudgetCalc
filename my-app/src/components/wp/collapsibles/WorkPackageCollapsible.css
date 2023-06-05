@@ -42,3 +42,20 @@
 
   color: grey !important;
 }
+.collapsible {
+  display: flex !important;
+  align-items: center; 
+  cursor: pointer;
+}
+
+.icon {
+  margin-right: 5px;
+}
+
+.collapseHead {
+  margin: 0;
+}
+
+.custombtn {
+  margin: 10px;
+}
