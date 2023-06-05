@@ -24,7 +24,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
 
   const [tempData, setTempData] = React.useState(copiedObject);
   const header1 = [
-    "",
+    "pooja",
     "",
     "",
     "",
