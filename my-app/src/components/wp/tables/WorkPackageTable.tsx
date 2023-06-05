@@ -23,35 +23,6 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
   const [showAdditionalFields, setShowAdditionalFields] = React.useState(false);
 
   const [tempData, setTempData] = React.useState(copiedObject);
-  const header1 = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "External Fee",
-    "",
-    "Refundable Expenses",
-    "",
-    "",
-    "",
-    "",
-    "",
-    "",
-    ,
-    "Total",
-  ];
 
   const [header, setHeader] = React.useState([
     "",
@@ -92,15 +63,7 @@ const WorkPackageTable: React.FunctionComponent<IWorkPackageTableProps> = (
     setEditMode(false);
   };
 
-  // console.log(
-  //   "temp",
-  //   tempData.ctrRevision.calcRev.ctrs[0].ap4_ctr_number.value
-  // );
-  // console.log(
-  //   "initial",
-  //   initialData.ctrRevision.calcRev.ctrs[0].ap4_ctr_number.value
-  // );
-
+  
   const handleCancel = () => {
     const copiedObject1 = _.cloneDeep(initialData);
     setTempData({ ...copiedObject1 });
