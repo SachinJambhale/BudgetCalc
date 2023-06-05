@@ -53,3 +53,16 @@ tbody td.number {
   text-align: left;
   display: table-cell;
 }
+.custombtn {
+  font-size: 12px !important;
+  margin: 10px !important;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 0px !important;
+  font-weight: bold !important;
+  line-height: 15.96px;
+  letter-spacing: 5%;
+  color: white !important;
+  background-color: #0f204b !important;
+}
