@@ -6,13 +6,12 @@ import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import WorkPackage from "../tables/WorkPackage";
-<<<<<<< HEAD
+
 import "./WorkPackageCollapsible.css";
 interface IWorkPackagesCollapsibleProps {}
-=======
+
 
 interface IWorkPackageCollapsibleProps {}
->>>>>>> 0eb5ae977c5aeb6406bc9b04a51c651f99d4b9e3
 
 const WorkPackageCollapsible: React.FunctionComponent<IWorkPackageCollapsibleProps> = (
   props
