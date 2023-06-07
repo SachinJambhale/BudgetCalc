@@ -6,11 +6,11 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
-import Table from "../tables/Table";
+import ObjectivesScopeInputDataDeliverablesTable from "../tables/ObjectivesScopeInputDataDeliverablesTable";
 
 interface IProjectBillRateProps {}
 
-const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = () => {
+const ObjectivesScopeInputDataDeliverablesCollapsible: React.FunctionComponent<IProjectBillRateProps> = () => {
   const [isCollapsibleOpen, setCollapsibleOpen] = useState(false);
   const [isEditing, setEditing] = useState(false);
 
@@ -39,7 +39,8 @@ const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = () => {
       <div>
         <div className="collapsible" onClick={handleCollapsibleClick}>
           <h4 className="icon">{isCollapsibleOpen ? <DownIcon /> : <RightIcon />} </h4>
-          <h4 className="collapseHead">Table</h4>
+          <h4 className="collapseHead">OBJECTIVES-SCOPE-INPUT DATA-DELIVERABLES</h4>
+          
         </div>
 
         {isCollapsibleOpen && (
@@ -65,7 +66,7 @@ const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = () => {
                 SHOW INVALID RATES
               </Button>
             </Box>
-            <Table />
+            <ObjectivesScopeInputDataDeliverablesTable />
           </Box>
         )}
       </div>
@@ -73,6 +74,6 @@ const ProjectBillRate: React.FunctionComponent<IProjectBillRateProps> = () => {
   );
 };
 
-export default ProjectBillRate;
+export default ObjectivesScopeInputDataDeliverablesCollapsible;
 
 

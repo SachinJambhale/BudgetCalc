@@ -9,7 +9,7 @@ interface TableRowData {
   email: string;
 }
 
-const Table: React.FC = () => {
+const ObjectivesScopeInputDataDeliverables: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
   const tableData: TableRowData[] = [
@@ -83,7 +83,7 @@ const Table: React.FC = () => {
   );
 };
 
-export default Table;
+export default ObjectivesScopeInputDataDeliverables;
 
 
 // import React, { useState } from 'react';

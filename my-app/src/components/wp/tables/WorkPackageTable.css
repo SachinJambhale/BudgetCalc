@@ -5,90 +5,65 @@
 } */
 
 table {
-  border-collapse: collapse;
-}
-
-.tborder {
-  border: 1px solid #000 !important;
-  text-align: center !important;
-}
-.cells {
-  width: 6rem;
-  height: 1.5rem;
-  text-align: center;
-  border: 1px solid #000;
-  padding: 0.5rem;
-}
- td {
- td {
-  font-size: 10px !important;
-  border: none;
-
-  background-color: transparent;
-}
-.select {
-  width: 5rem !important;
-  height: 2rem !important;
-}
-
-.input {
-
-  border: none;
-  appearance: none;
-  border-style: none;
-
-  outline: none;
-
-}
-
-input[type=text]:focus {
-  outline: auto 1px;
-  outline-color: none;
-  outline-style: none;
-  outline-width: none;
-}
-
-.cont {
-  width: 100%;
-  overflow-x: auto;
-  display: table;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-.table {
-  width: 2200px !important;
-  height: 300px !important;
-}
-
-.head {
-  width: 2216px !important;
-  height: 81px !important;
-  overflow-x: auto !important;
-}
-
-.body {
-  width: 2198px !important;
-  height: 200px !important;
-  overflow-x: auto !important;
-}
-   
-
-th,tr, td {
-    border:1px solid black;
-    border-bottom:1px solid black!important ;
+    border-collapse: collapse;
   }
-  .MuiTableHead-root{
-    background-color: rgb(239, 238, 238);
+  
+  td,
+  th {
+    font-size: 10px !important;
+    height: 27px !important;
+    width: 35rem !important;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 0.5rem;
   }
-  .selectDropdown {
-    padding: 6px;
-    font-size: 0.9rem;
-    border-radius: 0px;
+  /* td {
+    font-size: 10px !important;
+    height: 27px !important;
+  } */
+  
+  th {
+    width: 60rem !important;
+  }
+  
+  .tborder {
     border: none;
   }
-
-  .tableHead{
+  
+  .tableHead {
+    border: 1px solid #000;
+  }
+  
+  input {
+    border: none !important;
+  }
+  
+  .css-xr1b2h {
+    margin: 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    -webkit-justify-content: start;
+    justify-content: start;
+  }
+  tbody td.number {
+    text-align: left;
+    display: table-cell;
+  }
+  .custombtn {
+    font-size: 12px !important;
+    margin: 10px !important;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 0px !important;
     font-weight: bold !important;
+    line-height: 15.96px;
+    letter-spacing: 5%;
+    color: white !important;
+    background-color: #0f204b !important;
   }
   
