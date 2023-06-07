@@ -1,15 +1,22 @@
 import * as React from "react";
+import "./WorkPackageCollapsible.css";
+import { IconButton } from "@mui/material";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import WorkPackage from "../tables/WorkPackage";
+<<<<<<< HEAD
 import "./WorkPackageCollapsible.css";
 interface IWorkPackagesCollapsibleProps {}
+=======
 
-const WorkPackagesCollapsible: React.FunctionComponent<
-  IWorkPackagesCollapsibleProps
-> = (props) => {
+interface IWorkPackageCollapsibleProps {}
+>>>>>>> 0eb5ae977c5aeb6406bc9b04a51c651f99d4b9e3
+
+const WorkPackageCollapsible: React.FunctionComponent<IWorkPackageCollapsibleProps> = (
+  props
+) => {
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -20,10 +27,27 @@ const WorkPackagesCollapsible: React.FunctionComponent<
           <h4 className="collapseHead">WORK PACKAGES</h4>
         </div>
 
-        {open && <WorkPackage />}
+        {open && (
+          <Box>
+            <Box
+              sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
+            >
+              <Button className="custombtn" sx={{ margin: "10px" }}>
+                EDIT
+              </Button>
+              <Button className="custombtn" sx={{ margin: "10px" }}>
+                SHOW ADDITIONAL FIELD
+              </Button>
+              <Button className="custombtn" sx={{ margin: "10px" }}>
+                SHOW SUBTASK
+              </Button>
+            </Box>
+            <WorkPackage />
+          </Box>
+        )}
       </div>
     </>
   );
 };
 
-export default WorkPackagesCollapsible;
+export default WorkPackageCollapsible;
