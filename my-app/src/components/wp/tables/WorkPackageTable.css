@@ -8,58 +8,69 @@ table {
   border-collapse: collapse;
 }
 
-td,
-th {
-  font-size: 10px !important;
-  height: 27px !important;
-  width: 35rem !important;
+.tborder {
+  border: 1px solid #000 !important;
+  text-align: center !important;
+}
+.cells {
+  width: 6rem;
+  height: 1.5rem;
   text-align: center;
   border: 1px solid #000;
   padding: 0.5rem;
 }
  td {
+ td {
   font-size: 10px !important;
   border: none;
- 
+
   background-color: transparent;
 }
 .select {
   width: 5rem !important;
   height: 2rem !important;
 }
-.input{
-  
+
+.input {
+
   border: none;
   appearance: none;
   border-style: none;
- 
+
   outline: none;
-  
+
 }
+
 input[type=text]:focus {
-  outline:  auto 1px;
-    outline-color:none ;
-    outline-style:none ;
-    outline-width:none ;
+  outline: auto 1px;
+  outline-color: none;
+  outline-style: none;
+  outline-width: none;
 }
-.cont{
+
+.cont {
   width: 100%;
   overflow-x: auto;
   display: table;
-    border-collapse: collapse;
-    border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
-.table{
-  width:2200px;
-  height:300px;
+
+.table {
+  width: 2200px !important;
+  height: 300px !important;
 }
-.head{
-  width:2198px;
-  height:84px;
+
+.head {
+  width: 2216px !important;
+  height: 81px !important;
+  overflow-x: auto !important;
 }
-.body{
-  width:2198px;
-  height:153px;
+
+.body {
+  width: 2198px !important;
+  height: 200px !important;
+  overflow-x: auto !important;
 }
    
 
