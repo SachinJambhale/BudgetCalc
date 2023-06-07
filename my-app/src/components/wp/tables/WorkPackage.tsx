@@ -120,38 +120,38 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
       <div style={{ margin: "5px", display: "flex", justifyContent: "start" }}>
         {editMode ? (
           <>
-            <Button className="custombtn" onClick={handleSave}>
+            <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleSave}>
               Save
             </Button>
-            <Button className="custombtn" onClick={handleCancel}>
+            <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleCancel}>
               Cancel
             </Button>
           </>
         ) : (
-          <Button className="custombtn" onClick={handleEditButtonClick}>
+          <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleEditButtonClick}>
             Edit
           </Button>
         )}
 
         <Button
           onClick={() => setShowAdditionalFields(!showAdditionalFields)}
-          className="custombtn"
+          className="custombtn" sx={{ margin: "10px" }}
         >
           {showAdditionalFields
             ? "Hide Additional Fields"
             : "Show Additional Fields"}
         </Button>
-        <Button onClick={collapseRowsOnShowSubTask} className="custombtn">
+        <Button onClick={collapseRowsOnShowSubTask} className="custombtn" sx={{ margin: "10px" }}>
           {showSubTask ? "Hide Subtask" : "Show Subtask"}
         </Button>
       </div>
-      <TableContainer>
-        <table>
-          <thead>
-            <tr>
-              <th colSpan={4}></th>
+      <TableContainer style={{overflowX:"auto"}}>
+        <table className="table">
+          <thead className="head">
+            <tr >
+              <th colSpan={4} className="td tborder stickyCell"></th>
               {showSubTask && (
-                <th colSpan={3}>
+                <th colSpan={3} className="td tborder">
                   <Button
                     onClick={() => setShowSubTask(!showSubTask)}
                     className="custombtn"
@@ -160,11 +160,11 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </Button>
                 </th>
               )}
-              <th></th>
-              <th></th>
-              <th></th>
+              <th className="td tborder"></th>
+              <th className="td tborder"></th>
+              <th className="td tborder"></th>
               {showAdditionalFields && (
-                <th colSpan={8}>
+                <th colSpan={8} className="td tborder">
                   {" "}
                   <Button
                     onClick={() =>
@@ -178,13 +178,13 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </Button>
                 </th>
               )}
-              <th colSpan={3}></th>
-              <th colSpan={4}>External Fee</th>
-              <th colSpan={4}>Refundable Expenses</th>
-              <th></th>
-              <th></th>
-              <th></th>
-              <th colSpan={4}>Totals</th>
+              <th colSpan={3} className="td tborder"></th>
+              <th colSpan={4} className="td tborder">External Fee</th>
+              <th colSpan={4} className="td tborder">Refundable Expenses</th>
+              <th className="td tborder"></th>
+              <th className="td tborder"></th>
+              <th className="td tborder"></th>
+              <th colSpan={4} className="td tborder">Totals</th>
             </tr>
             <tr>
               {/* edit delete Icons in this th */}
@@ -202,19 +202,19 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                 </IconButton>
               </th>
               <th
-                className="tborder tableHead"
+                className="tborder tableHead stickyCell1"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 WP Number
               </th>
               <th
-                className="tborder tableHead"
+                className="tborder tableHead stickyCell2"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 WP Name
               </th>
               <th
-                className="tborder tableHead"
+                className="tborder tableHead stickyCell3"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 Project Short Name
@@ -397,13 +397,13 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
             {tempData.ctrRevision.calcRev.ctrs.map((ctr: any, index: any) => (
               <>
                 <tr key={index} className="tborder tableHead">
-                  <td className={`td tborder ${editMode ? "editable" : ""}`}>
+                  <td className={`td tborder stickyCell ${editMode ? "editable" : ""}`}>
                     <IconButton onClick={() => handleToggleRow(index)}>
                       {isRowOpen(index) ? <DownIcon /> : <RightIcon />}
                     </IconButton>
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder stickyCell ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -419,7 +419,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder stickyCell ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -435,7 +435,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder stickyCell ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -452,18 +452,18 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
 
                   {showSubTask && (
-                    <td className={`td  ${editMode ? "editable" : ""}`}></td>
+                    <td className={`td tborder ${editMode ? "editable" : ""}`}></td>
                   )}
 
                   {showSubTask && (
-                    <td className={`td  ${editMode ? "editable" : ""}`}></td>
+                    <td className={`td tborder ${editMode ? "editable" : ""}`}></td>
                   )}
                   {showSubTask && (
-                    <td className={`td  ${editMode ? "editable" : ""}`}></td>
+                    <td className={`td tborder ${editMode ? "editable" : ""}`}></td>
                   )}
 
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -479,7 +479,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -494,7 +494,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                       ctr.ap4_finish_date.value[0].split("T")[0]
                     )}
                   </td>
-                  <td className="td " align="right">
+                  <td className="td tborder " align="right">
                     {editMode ? (
                       <select
                         name={ctr.ap4_ctr_status_code.name}
@@ -523,23 +523,23 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       PM
                     </td>
                   )}
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       -
                     </td>
                   )}
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       Vatyani Purnima (Purvat)
                     </td>
                   )}
                   {showAdditionalFields && (
                     <td
-                      className={`td  ${editMode ? "editable" : ""}`}
+                      className={`td tborder ${editMode ? "editable" : ""}`}
                       align="right"
                     >
                       {editMode ? (
@@ -556,7 +556,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     </td>
                   )}
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       {editMode ? (
                         <select
                           name={ctr.ap4_billable.name}
@@ -579,7 +579,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     </td>
                   )}
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       {editMode ? (
                         <select
                           name={ctr.ap4_chargeable.name}
@@ -602,7 +602,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     </td>
                   )}
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       {editMode ? (
                         <select
                           name={ctr.ap4_hide_ctr.name}
@@ -625,7 +625,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     </td>
                   )}
                   {showAdditionalFields && (
-                    <td className="td " align="right">
+                    <td className="td tborder" align="right">
                       {editMode ? (
                         <select
                           name={ctr.ap4_submit_bill_rates_to_of.name}
@@ -647,7 +647,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                       )}
                     </td>
                   )}
-                  <td className="td " align="right">
+                  <td className="td tborder" align="right">
                     {editMode ? (
                       <select
                         name={ctr.ap4_is_fixed_price.name}
@@ -669,7 +669,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -690,7 +690,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -714,7 +714,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
                   <td
                     colSpan={2}
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -731,7 +731,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
                   <td
                     colSpan={2}
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -748,7 +748,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
                   <td
                     colSpan={2}
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -765,7 +765,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
                   <td
                     colSpan={2}
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -781,7 +781,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -797,7 +797,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -813,7 +813,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                     )}
                   </td>
                   <td
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {editMode ? (
@@ -830,7 +830,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
                   <td
                     colSpan={2}
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {+ctr.ap4_refundable_revenue.value[0] +
@@ -838,7 +838,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </td>
                   <td
                     colSpan={2}
-                    className={`td  ${editMode ? "editable" : ""}`}
+                    className={`td tborder ${editMode ? "editable" : ""}`}
                     align="right"
                   >
                     {+ctr.ap4_refundable_raw_cost.value[0] +
@@ -856,19 +856,19 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                             }`}
                           ></td>
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
 
-                          <td className={`td  ${editMode ? "editable" : ""}`}>
+                          <td className={`td tborder ${editMode ? "editable" : ""}`}>
                             {editMode ? (
                               <input
                                 className="cells"
@@ -882,7 +882,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                             )}
                           </td>
 
-                          <td className={`td  ${editMode ? "editable" : ""}`}>
+                          <td className={`td tborder ${editMode ? "editable" : ""}`}>
                             {editMode ? (
                               <input
                                 className="cells"
@@ -895,7 +895,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                               rel.object_desc.value[0]
                             )}
                           </td>
-                          <td className={`td  ${editMode ? "editable" : ""}`}>
+                          <td className={`td tborder ${editMode ? "editable" : ""}`}>
                             {editMode ? (
                               <input
                                 className="cells"
@@ -910,90 +910,90 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                           </td>
 
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
-                          <td className="td " align="right"></td>
+                          <td className="td tborder" align="right"></td>
                           {showAdditionalFields && (
-                            <td className="td " align="right"></td>
+                            <td className="td tborder" align="right"></td>
                           )}
                           {showAdditionalFields && (
                             <td className="td " align="right"></td>
                           )}
                           {showAdditionalFields && (
-                            <td className="td " align="right"></td>
+                            <td className="td tborder" align="right"></td>
                           )}
                           {showAdditionalFields && (
                             <td
-                              className={`td  ${editMode ? "editable" : ""}`}
+                              className={`td tborder ${editMode ? "editable" : ""}`}
                               align="right"
                             ></td>
                           )}
                           {showAdditionalFields && (
-                            <td className="td " align="right"></td>
+                            <td className="td tborder" align="right"></td>
                           )}
                           {showAdditionalFields && (
-                            <td className="td " align="right"></td>
+                            <td className="td tborder" align="right"></td>
                           )}
                           {showAdditionalFields && (
-                            <td className="td " align="right"></td>
+                            <td className="td tborder" align="right"></td>
                           )}
                           {showAdditionalFields && (
-                            <td className="td " align="right"></td>
+                            <td className="td tborder" align="right"></td>
                           )}
-                          <td className="td " align="right"></td>
+                          <td className="td tborder" align="right"></td>
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
-                            className={`td  ${editMode ? "editable" : ""}`}
-                            align="right"
-                          ></td>
-                          <td
-                            colSpan={2}
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
                             colSpan={2}
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
                             colSpan={2}
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
                             colSpan={2}
-                            className={`td  ${editMode ? "editable" : ""}`}
-                            align="right"
-                          ></td>
-                          <td
-                            className={`td  ${editMode ? "editable" : ""}`}
-                            align="right"
-                          ></td>
-                          <td
-                            className={`td  ${editMode ? "editable" : ""}`}
-                            align="right"
-                          ></td>
-                          <td
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
                             colSpan={2}
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
+                            align="right"
+                          ></td>
+                          <td
+                            className={`td tborder ${editMode ? "editable" : ""}`}
+                            align="right"
+                          ></td>
+                          <td
+                            className={`td tborder ${editMode ? "editable" : ""}`}
+                            align="right"
+                          ></td>
+                          <td
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                           <td
                             colSpan={2}
-                            className={`td  ${editMode ? "editable" : ""}`}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
+                            align="right"
+                          ></td>
+                          <td
+                            colSpan={2}
+                            className={`td tborder ${editMode ? "editable" : ""}`}
                             align="right"
                           ></td>
                         </tr>

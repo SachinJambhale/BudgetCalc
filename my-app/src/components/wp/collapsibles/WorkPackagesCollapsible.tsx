@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import WorkPackage from "../tables/WorkPackage";
 import "./WorkPackageCollapsible.css";
-
 interface IWorkPackagesCollapsibleProps {}
 
 const WorkPackagesCollapsible: React.FunctionComponent<
