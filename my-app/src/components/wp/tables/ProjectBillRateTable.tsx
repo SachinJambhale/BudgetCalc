@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -19,8 +18,6 @@ import Box from "@mui/material/Box";
 import obj from "../dummy-data/RateTable.json";
 import "./ProjectBillRate.css";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
-import { faV } from "@fortawesome/free-solid-svg-icons";
-import { isEditable } from "@testing-library/user-event/dist/utils";
 
 const ProjectBillRateTable = () => {
   const [openRows, setOpenRows] = useState<number[]>([]);
@@ -101,8 +98,7 @@ const ProjectBillRateTable = () => {
 
   return (
     <>
-
-       <Box sx={{ margin: "5px", display: "flex", justifyContent: "start" }}>
+      <Box sx={{ margin: "5px", display: "flex", justifyContent: "start" }}>
         {!isEditing ? (
           <Button
             className="custombtn"
@@ -151,7 +147,7 @@ const ProjectBillRateTable = () => {
                 </IconButton>
               </TableCell>
               {header.map((head, index) => (
-                <TableCell key={head} sx={{ fontSize: "0.9rem",width: 120 }}>
+                <TableCell key={head} sx={{ fontSize: "0.9rem", width: 120 }}>
                   {head}
                 </TableCell>
               ))}
@@ -160,7 +156,7 @@ const ProjectBillRateTable = () => {
           <TableBody>
             {data.value.map((item, index) => (
               <React.Fragment key={index}>
-                <TableRow sx={{width: 160, border: 1 }}>
+                <TableRow sx={{ width: 160, border: 1 }}>
                   <TableCell>
                     <IconButton onClick={() => handleToggleRow(index)}>
                       {isRowOpen(index) ? <DownIcon /> : <RightIcon />}
@@ -214,24 +210,31 @@ const ProjectBillRateTable = () => {
                       <TableCell></TableCell>
                       <TableCell></TableCell>
                       <TableCell style={{ width: 200, padding: 0 }}>
-                    <FormControl variant="outlined" fullWidth>
-                      <InputLabel htmlFor="outlined-age-native-simple">
-                      {item.jobCategories[0]?.ap4_OracleJobCategory?.value[0]}
-                      </InputLabel>
-                      <Select native label="Value" className="selectDropdown">
-                        <option aria-label="None" value="" />
-                        <option>ASSIST..</option>
-                        <option>PRESV..</option>
-                        <option>PREV..</option>
-                        <option>PRIN..</option>
-                        <option>PROF..</option>
-                        <option>SEN..</option>
-                        <option>SPRIN..</option>
-                        <option>XSUB..</option>
-                        <option>XTEMP.</option>
-                      </Select>
-                    </FormControl>
-                    </TableCell>
+                        <FormControl variant="outlined" fullWidth>
+                          <InputLabel htmlFor="outlined-age-native-simple">
+                            {
+                              item.jobCategories[0]?.ap4_OracleJobCategory
+                                ?.value[0]
+                            }
+                          </InputLabel>
+                          <Select
+                            native
+                            label="Value"
+                            className="selectDropdown"
+                          >
+                            <option aria-label="None" value="" />
+                            <option>ASSIST..</option>
+                            <option>PRESV..</option>
+                            <option>PREV..</option>
+                            <option>PRIN..</option>
+                            <option>PROF..</option>
+                            <option>SEN..</option>
+                            <option>SPRIN..</option>
+                            <option>XSUB..</option>
+                            <option>XTEMP.</option>
+                          </Select>
+                        </FormControl>
+                      </TableCell>
                       <TableCell>
                         {item.AP4_RateSchedJobCatRelation?.value[0]?.object_name?.value.map(
                           (data, index) => (
@@ -241,19 +244,38 @@ const ProjectBillRateTable = () => {
                       </TableCell>
                       <TableCell>{item.ap4_currencycode.value[0]}</TableCell>
 
-                      <TableCell>{item.jobCategories[0]?.ap4_external_rate?.value[0]}</TableCell>
-                      <TableCell>{item.jobCategories[0]?.object_desc?.value[0]}</TableCell>
-                      <TableCell>{item.jobCategories[0]?.ap4_years_of_exp_from?.value[0]}</TableCell>
-                      <TableCell>{item.jobCategories[0]?.ap4_years_of_exp_to?.value[0]}</TableCell>
-                      <TableCell>{isEditing?(<input
-                        className="cells"
-                        name= "From Date"
-                        type="date"
-                        value={item.jobCategories[0]?.ap4_from_date?.value[0].split("T")[0]}
-                      />):(item.jobCategories[0]?.ap4_from_date?.value[0].split("T")[0])}
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_external_rate?.value[0]}
                       </TableCell>
                       <TableCell>
-                      {item.jobCategories[0]?.ap4_to_date?.value[0]}
+                        {item.jobCategories[0]?.object_desc?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_years_of_exp_from?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_years_of_exp_to?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {isEditing ? (
+                          <input
+                            className="cells"
+                            name="From Date"
+                            type="date"
+                            value={
+                              item.jobCategories[0]?.ap4_from_date?.value[0].split(
+                                "T"
+                              )[0]
+                            }
+                          />
+                        ) : (
+                          item.jobCategories[0]?.ap4_from_date?.value[0].split(
+                            "T"
+                          )[0]
+                        )}
+                      </TableCell>
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_to_date?.value[0]}
                       </TableCell>
                     </TableRow>
                     <TableRow>
@@ -261,24 +283,31 @@ const ProjectBillRateTable = () => {
                       <TableCell></TableCell>
                       <TableCell></TableCell>
                       <TableCell style={{ width: 200, padding: 0 }}>
-                    <FormControl variant="outlined" fullWidth>
-                      <InputLabel htmlFor="outlined-age-native-simple">
-                      {item.jobCategories[0]?.ap4_OracleJobCategory?.value[0]}
-                      </InputLabel>
-                      <Select native label="Value" className="selectDropdown">
-                        <option aria-label="None" value="" />
-                        <option>ASSIST..</option>
-                        <option>PRESV..</option>
-                        <option>PREV..</option>
-                        <option>PRIN..</option>
-                        <option>PROF..</option>
-                        <option>SEN..</option>
-                        <option>SPRIN..</option>
-                        <option>XSUB..</option>
-                        <option>XTEMP.</option>
-                      </Select>
-                    </FormControl>
-                    </TableCell>
+                        <FormControl variant="outlined" fullWidth>
+                          <InputLabel htmlFor="outlined-age-native-simple">
+                            {
+                              item.jobCategories[0]?.ap4_OracleJobCategory
+                                ?.value[0]
+                            }
+                          </InputLabel>
+                          <Select
+                            native
+                            label="Value"
+                            className="selectDropdown"
+                          >
+                            <option aria-label="None" value="" />
+                            <option>ASSIST..</option>
+                            <option>PRESV..</option>
+                            <option>PREV..</option>
+                            <option>PRIN..</option>
+                            <option>PROF..</option>
+                            <option>SEN..</option>
+                            <option>SPRIN..</option>
+                            <option>XSUB..</option>
+                            <option>XTEMP.</option>
+                          </Select>
+                        </FormControl>
+                      </TableCell>
                       <TableCell>
                         {item.AP4_RateSchedJobCatRelation?.value[0]?.object_name?.value.map(
                           (data, index) => (
@@ -288,16 +317,35 @@ const ProjectBillRateTable = () => {
                       </TableCell>
                       <TableCell>{item.ap4_currencycode.value[0]}</TableCell>
 
-                      <TableCell>{item.jobCategories[0]?.ap4_external_rate?.value[0]}</TableCell>
-                      <TableCell>{item.jobCategories[0]?.object_desc?.value[0]}</TableCell>
-                      <TableCell>{item.jobCategories[0]?.ap4_years_of_exp_from?.value[0]}</TableCell>
-                      <TableCell>{item.jobCategories[0]?.ap4_years_of_exp_to?.value[0]}</TableCell>
-                      <TableCell>{isEditing?(<input
-                        className="cells"
-                        name= "From Date"
-                        type="date"
-                        value={item.jobCategories[0]?.ap4_from_date?.value[0].split("T")[0]}
-                      />):(item.jobCategories[0]?.ap4_from_date?.value[0].split("T")[0])}
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_external_rate?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {item.jobCategories[0]?.object_desc?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_years_of_exp_from?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {item.jobCategories[0]?.ap4_years_of_exp_to?.value[0]}
+                      </TableCell>
+                      <TableCell>
+                        {isEditing ? (
+                          <input
+                            className="cells"
+                            name="From Date"
+                            type="date"
+                            value={
+                              item.jobCategories[0]?.ap4_from_date?.value[0].split(
+                                "T"
+                              )[0]
+                            }
+                          />
+                        ) : (
+                          item.jobCategories[0]?.ap4_from_date?.value[0].split(
+                            "T"
+                          )[0]
+                        )}
                       </TableCell>
                       <TableCell>
                         {item.jobCategories[0]?.ap4_to_date?.value[0]}
@@ -310,12 +358,8 @@ const ProjectBillRateTable = () => {
           </TableBody>
         </Table>
       </TableContainer>
-
     </>
   );
 };
 
 export default ProjectBillRateTable;
-
-
-

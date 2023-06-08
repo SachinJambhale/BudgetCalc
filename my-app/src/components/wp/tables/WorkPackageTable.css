@@ -1,72 +1,65 @@
-/* .td {
-  font-size: 10px !important;
-  height: 35px !important;
-  width: 5rem !important;
-} */
-
 table {
-    border-collapse: collapse;
-  }
-  
-  td,
-  th {
-    font-size: 10px !important;
-    text-align: center;
-    border: 1px solid #000;
-    padding: 0.5rem;
-  }
-  /* td {
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+td,
+th {
+  font-size: 10px !important;
+  text-align: center;
+  border: 1px solid #000;
+  padding: 0.5rem;
+}
+/* td {
     font-size: 10px !important;
     height: 27px !important;
   } */
-  
-  /* th {
+
+/* th {
     width: 60rem !important;
   } */
-  
-  .tborder {
-    border: none;
-  }
-  
-  .tableHead {
-    border: 1px solid #000;
-  }
-  
-  input {
-    border: none !important;
-  }
-  
-  .css-xr1b2h {
-    margin: 5px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-    -ms-flex-pack: start;
-    -webkit-justify-content: start;
-    justify-content: start;
-  }
-  tbody td.number {
-    text-align: left;
-    display: table-cell;
-  }
-  .custombtn {
-    font-size: 12px !important;
-    margin: 10px !important;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    margin-top: 0px !important;
-    font-weight: bold !important;
-    line-height: 15.96px;
-    letter-spacing: 5%;
-    color: white !important;
-    background-color: #0f204b !important;
-  }
-  .stickyCell{
-    position:sticky;
-    left:0;
 
-  }
-  
+.tborder {
+  border: none;
+}
+
+.tableHead {
+  border: 1px solid #000;
+}
+
+input {
+  border: none !important;
+}
+
+.css-xr1b2h {
+  margin: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  -webkit-justify-content: start;
+  justify-content: start;
+}
+tbody td.number {
+  text-align: left;
+  display: table-cell;
+}
+.custombtn {
+  font-size: 12px !important;
+  margin: 10px !important;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 0px !important;
+  font-weight: bold !important;
+  line-height: 15.96px;
+  letter-spacing: 5%;
+  color: white !important;
+  background-color: #0f204b !important;
+}
+.stickyCell {
+  position: sticky;
+  left: 0;
+}
