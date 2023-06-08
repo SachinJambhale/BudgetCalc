@@ -11,6 +11,7 @@ let obj = obj1;
 
 interface IWorkPackageProps {}
 
+
 const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
   const [initialData, setInitialData] = React.useState(obj);
   console.log("obj", obj);
@@ -189,7 +190,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
             <tr>
               {/* edit delete Icons in this th */}
               <th
-                className="tborder tableHead"
+                className="tborder tableHead stickyCell"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 <IconButton onClick={() => handleToggleRow(-1)}>
@@ -202,19 +203,19 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                 </IconButton>
               </th>
               <th
-                className="tborder tableHead stickyCell1"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                className="tborder tableHead"
+                style={{ fontSize: "0.9rem", fontWeight: "bold", position:"sticky",left:"0",minWidth:"136px"}}
               >
                 WP Number
               </th>
               <th
-                className="tborder tableHead stickyCell2"
+                className="tborder tableHead stickyCell"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 WP Name
               </th>
               <th
-                className="tborder tableHead stickyCell3"
+                className="tborder tableHead stickyCell"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 Project Short Name

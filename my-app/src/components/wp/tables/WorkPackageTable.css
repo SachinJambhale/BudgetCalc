@@ -66,4 +66,9 @@ table {
     color: white !important;
     background-color: #0f204b !important;
   }
+  .stickyCell{
+    position:sticky;
+    left:0;
+
+  }
   
