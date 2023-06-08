@@ -11,7 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import DownIcon from '@mui/icons-material/ArrowDropDown';
 import RightIcon from '@mui/icons-material/ArrowRight';
-import "./WorkPackageTable.css";
+import "./BillRateTable.css";
 // function createData(
 //     RateTableName: string,
 //     CategoryType: string,
