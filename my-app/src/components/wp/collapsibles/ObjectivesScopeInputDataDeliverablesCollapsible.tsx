@@ -62,9 +62,6 @@ const ObjectivesScopeInputDataDeliverablesCollapsible: React.FunctionComponent<I
                   </Button>
                 </>
               )}
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                SHOW INVALID RATES
-              </Button>
             </Box>
             <ObjectivesScopeInputDataDeliverablesTable />
           </Box>
