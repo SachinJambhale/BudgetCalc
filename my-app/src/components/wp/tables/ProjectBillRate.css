@@ -12,18 +12,22 @@ table {
     border: 1px solid #000 !important;
     text-align: center !important;
   }
-  .cells {
-    width: 6rem;
-    height: 1.5rem;
+  .cells_project_rate {
     text-align: center;
     border: 1px solid #000;
     padding: 0.5rem;
   }
-   td {
-    font-size: 10px !important;
-    border: none;
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
   
-    background-color: transparent;
+  td,
+  th {
+    font-size: 10px !important;
+    text-align: center;
+    border: 1px solid #000;
+    padding: 0.5rem;
   }
   .select {
     width: 5rem !important;
@@ -53,11 +57,7 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
   }
-  
-  .table {
-    width: 2200px !important;
-    height: 300px !important;
-  }
+ 
   
   .head {
     width: 2216px !important;
@@ -70,21 +70,17 @@ table {
     height: 200px !important;
     overflow-x: auto !important;
   }
-     
-th,tr, td {
-    border:1px solid black;
-    border-bottom:1px solid black!important ;
-  }
-  .MuiTableHead-root{
-    background-color: rgb(239, 238, 238);
-  }
+
   .selectDropdown {
     padding: 6px;
     font-size: 0.9rem;
     border-radius: 0px;
     border: none;
   }
-
-  .tableHead{
-    font-weight: bold !important;
+  .tborder {
+    border: none;
+  }
+  
+  .tableHead {
+    border: 1px solid #000;
   }
