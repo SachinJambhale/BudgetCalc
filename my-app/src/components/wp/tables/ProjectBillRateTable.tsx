@@ -12,8 +12,6 @@ import Box from "@mui/material/Box";
 import obj from "../dummy-data/RateTable.json";
 import "./ProjectBillRate.css";
 import { FormControl, InputLabel, MenuItem } from "@mui/material";
-import { faV } from "@fortawesome/free-solid-svg-icons";
-import { isEditable } from "@testing-library/user-event/dist/utils";
 
 const ProjectBillRateTable = () => {
   const [openRows, setOpenRows] = useState<number[]>([]);

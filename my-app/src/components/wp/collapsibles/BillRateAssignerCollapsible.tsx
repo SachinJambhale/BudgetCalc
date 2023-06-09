@@ -98,7 +98,7 @@ const BillRateAssignerCollapsible: React.FunctionComponent<
 
   const handleClick = () => {
     setEnable(true);
-  }
+  };
 
   return (
     <>
@@ -107,34 +107,7 @@ const BillRateAssignerCollapsible: React.FunctionComponent<
           <h4 className="icon">{open ? <DownIcon /> : <RightIcon />} </h4>
           <h4 className="collapseHead">BILL RATE ASSIGNER</h4>
         </div>
-
-        {open && (
-          <Box>
-            <Box
-              sx={{ margin: "5px", display: "flex", justifyContent: "start" }}
-            >
-              <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
-                Edit
-              </Button>
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Additional Fields
-              </Button>
-              <Button className="custombtn" sx={{ margin: "10px" }}>
-                Show Subtask
-              </Button>
-            </Box>
-            {enable === true ? 
-            <Box>
-            <Button className="custombtn" sx={{ margin: "10px" }} onClick={handleClick}>
-                Save
-              </Button>
-              <Button className="custombtn" sx={{ margin: "10px" }} onClick={()=>setEnable(false) }>
-                Cancel
-              </Button>
-              </Box> : ''}
-            <BillRateAssignerTable enable={enable}/>
-          </Box>
-        )}
+        {open && <BillRateAssignerTable />}
       </div>
     </>
   );
