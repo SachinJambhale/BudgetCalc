@@ -1,26 +1,33 @@
-table {
+ table {
+  
   border-collapse: collapse;
   margin-top: 12px;
+  
 }
-
-td,
+ td,
 th {
+
   font-size: 12px !important;
   text-align: center;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
   padding: 0.5rem;
   width: 100px;
   height: 40px;
+  min-width: 136px;
+  position: sticky;
+  white-space: inherit;
+  outline: 1px solid #000;
+  border:none;
+  outline-offset: -1px;
 }
 
 .tborder {
-  border: none;
+  border: 1px solid #000 !important;
+  text-align: center !important;
 }
-
 .tableHead {
   border: 1px solid #000;
 }
-
 input {
   border: none !important;
 }
@@ -29,6 +36,7 @@ tbody td.number {
   text-align: left;
   display: table-cell;
 }
+
 
 .custombtn {
   font-size: 12px !important;
@@ -44,43 +52,32 @@ tbody td.number {
   background-color: #0f204b !important;
 }
 
-
-.sticky-col {
+.div1 th:nth-child(1),
+.div1 td:nth-child(1){
   position: sticky;
+  left: 0;
   background-color: white;
-  white-space: inherit;
-  min-width: 136px;
   z-index: 1;
 }
-.main-row{
-  
-  left: 40px;
+.div1 th:nth-child(2),
+.div1 td:nth-child(2){
+  position: sticky;
+  left: 153px;
+  background-color: white;
+  z-index: 1;
+}
+.div1 th:nth-child(3),
+.div1 td:nth-child(3){
+  position: sticky;
+  left: 306px;
+  background-color: white;
+  z-index: 1;
+}
+.div1 th:nth-child(4),
+.div1 td:nth-child(4){
+  position: sticky;
+  left: 459px;
+  background-color: white;
+  z-index: 1;
 }
 
-.first-col {
-  /* width: 100px; */
-  /* min-width: 100px;
-  max-width: 100px; */
-  left: 0px; 
-}
-
-.second-col {
-  /* width: 100px; */
-  /* min-width: 100px;
-  max-width: 100px; */
-  left: 80px; 
-}
-
-.third-col {
-  /* width: 100px; */
-  /* min-width: 100px;
-  max-width: 100px; */
-  left: 210px;
-}
-
-.fourth-col {
-  /* width: 100px; */
-  /* min-width: 100px;
-  max-width: 100px; */
-  left: 325px; 
-}

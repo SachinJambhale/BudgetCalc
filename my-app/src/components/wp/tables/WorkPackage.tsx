@@ -173,11 +173,11 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = ({checked}) => {
           {showSubTask ? "Hide Subtask" : "Show Subtask"}
         </Button>
       </div>
-      <TableContainer>
-        <table style={{overflowX:"auto", width:"2200px",height:"300px"}}>
+      <div className="div1" style={{overflow: 'auto'}}>
+        <table style={{ width:"2200px",height:"300px"}}>
           <thead>
             <tr>
-              <th className="sticky-col main-row" colSpan={4}></th>
+              <th className="" colSpan={1}></th>
               {showSubTask && (
                 <th colSpan={3} className="td tborder">
                   <Button
@@ -207,7 +207,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = ({checked}) => {
                   </Button>
                 </th>
               )}
-              <th colSpan={3} className="td tborder"></th>
+              <th colSpan={6} className="td tborder"></th>
               <th colSpan={4} className="td tborder">
                 External Fee
               </th>
@@ -224,8 +224,8 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = ({checked}) => {
             <tr>
               {/* edit delete Icons in this th */}
               <th
-                className="tborder tableHead first-col sticky-col"
-                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px"}}
+                className=""
+                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 <IconButton onClick={() => handleToggleRow(-1)}>
                   {openRows.length ===
@@ -236,25 +236,22 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = ({checked}) => {
                   )}
                 </IconButton>
               </th>
-            
-            <th
-                className="tborder tableHead second-col sticky-col"
-                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
-              ><u>
+              <th
+                className="tborder tableHead "
+                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+              >
                 WP Number
-                </u> </th>
-          
-             
-             <th
-                className="tborder tableHead third-col sticky-col"
-                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
-              ><u>
+              </th>
+              <th
+                className="tborder tableHead"
+                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+              >
                 WP Name
-                </u></th>
+                </th>
              
               <th
-                className="tborder tableHead fourth-col sticky-col"
-                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
+                className="tborder tableHead"
+                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 Project Short Name
               </th>
@@ -1137,7 +1134,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = ({checked}) => {
             ))}
           </tbody>
         </table>
-      </TableContainer>
+      </div>
     </>
   );
 };
