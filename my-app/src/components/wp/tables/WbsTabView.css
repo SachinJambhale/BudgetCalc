@@ -1,0 +1,14 @@
+.frozen {
+    width: 167px  !important;
+    height: 16px  !important;
+    font-family: 'Segoe UI';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #7B7B7B;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 75% !important;
+}

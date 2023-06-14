@@ -8,9 +8,11 @@ import DownIcon from "../Icons/DownIcon";
 
 let obj = obj1;
 
-interface IWorkPackageProps {}
+interface IWorkPackageProps {
+  checked:boolean
+}
 
-const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
+const WorkPackage: React.FunctionComponent<IWorkPackageProps> = ({checked}) => {
   const [initialData, setInitialData] = React.useState(obj);
   console.log("obj", obj);
   const _ = require("lodash");
@@ -134,6 +136,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
             <Button
               className="custombtn"
               sx={{ margin: "10px" }}
+              
               onClick={handleSave}
             >
               Save
@@ -150,6 +153,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
           <Button
             className="custombtn"
             sx={{ margin: "10px" }}
+            disabled ={checked}
             onClick={handleEditButtonClick}
           >
             Edit
@@ -169,11 +173,11 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
           {showSubTask ? "Hide Subtask" : "Show Subtask"}
         </Button>
       </div>
-      <TableContainer>
-        <table>
+      <div className="div1" style={{overflow: 'auto'}}>
+        <table style={{ width:"2200px",height:"300px"}}>
           <thead>
             <tr>
-              <th className="first-col sticky-col" colSpan={4}></th>
+              <th className="" colSpan={1}></th>
               {showSubTask && (
                 <th colSpan={3} className="td tborder">
                   <Button
@@ -203,7 +207,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                   </Button>
                 </th>
               )}
-              <th colSpan={3} className="td tborder"></th>
+              <th colSpan={6} className="td tborder"></th>
               <th colSpan={4} className="td tborder">
                 External Fee
               </th>
@@ -220,7 +224,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
             <tr>
               {/* edit delete Icons in this th */}
               <th
-                className="tborder tableHead first-col sticky-col"
+                className=""
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 <IconButton onClick={() => handleToggleRow(-1)}>
@@ -233,19 +237,20 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
                 </IconButton>
               </th>
               <th
-                className="tborder tableHead second-col sticky-col"
+                className="tborder tableHead "
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 WP Number
               </th>
               <th
-                className="tborder tableHead third-col sticky-col"
+                className="tborder tableHead"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 WP Name
-              </th>
+                </th>
+             
               <th
-                className="tborder tableHead fourth-col sticky-col"
+                className="tborder tableHead"
                 style={{ fontSize: "0.9rem", fontWeight: "bold" }}
               >
                 Project Short Name
@@ -259,30 +264,36 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
               {showSubTask && (
                 <th className="tborder tableHead">SubTask Short Name</th>
               )}
+              
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
+              ><u>
                 StartDate
-              </th>
-              <th
+                </u> </th>
+              
+            
+            <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
+              ><u>
                 EndDate
-              </th>
-              <th
+                </u> </th>
+            
+            
+             <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
+              > <u>
                 Status
-              </th>
+                </u> </th>
+             
 
               {/* hide from here */}
               {showAdditionalFields && (
                 <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 >
                   Contract
                 </th>
@@ -290,7 +301,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
               {showAdditionalFields && (
                 <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 >
                   Customer
                 </th>
@@ -298,31 +309,35 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
               {showAdditionalFields && (
                 <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 >
                   Manager
                 </th>
               )}
               {showAdditionalFields && (
-                <th
+             
+                  <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-                >
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
+                > <u>
                   Service Area Line
-                </th>
+                  </u> </th>
+              
               )}
               {showAdditionalFields && (
-                <th
+                
+                  <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-                >
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
+                ><u>
                   Billable
-                </th>
+                  </u> </th>
+                
               )}
               {showAdditionalFields && (
                 <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 >
                   Chargable
                 </th>
@@ -330,7 +345,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
               {showAdditionalFields && (
                 <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                  style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
                 >
                   Customer Portal
                 </th>
@@ -338,89 +353,109 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
               {showAdditionalFields && (
                 <th
                   className="tborder tableHead"
-                  style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                  style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 >
                   SubmitBillRates
                 </th>
               )}
+              
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
+              ><u>
                 Type
-              </th>
+                </u> </th>
+              
+             
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
+              > <u>
                 BillRate
-              </th>
+                </u> </th>
+              
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
               >
                 Curr
               </th>
+              
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 colSpan={2}
-              >
+              ><u>
                 Revenue
-              </th>
+                </u></th>
+              
+             
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 colSpan={2}
-              >
+              > <u>
                 Cost
-              </th>
+                </u></th>
+              
+              
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 colSpan={2}
-              >
+              ><u>
                 Revenue
-              </th>
-              <th
+                </u></th>
+             
+          
+           <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
                 colSpan={2}
-              >
+              > <u>
                 Cost
-              </th>
+                </u> </th>
+           
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
               >
                 Hours
               </th>
+              
               <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
+              ><u>
                 TSA/MSA
-              </th>
-              <th
+                </u></th>
+              
+             
+             <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
-              >
+                style={{ fontSize: "12px", fontWeight: "bold" ,width:"100px",height:"40px"}}
+              ><u>
                 Margin
-              </th>
-              <th
+                </u> </th>
+             
+          
+           <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 colSpan={2}
-              >
+              > <u>
                 Revenue
-              </th>
-              <th
+                </u> </th>
+           
+             
+             <th
                 className="tborder tableHead"
-                style={{ fontSize: "0.9rem", fontWeight: "bold" }}
+                style={{ fontSize: "12px", fontWeight: "bold",width:"100px",height:"40px" }}
                 colSpan={2}
-              >
+              ><u>
                 Cost
-              </th>
+                </u></th>
+            
             </tr>
           </thead>
 
@@ -1099,7 +1134,7 @@ const WorkPackage: React.FunctionComponent<IWorkPackageProps> = (props) => {
             ))}
           </tbody>
         </table>
-      </TableContainer>
+      </div>
     </>
   );
 };

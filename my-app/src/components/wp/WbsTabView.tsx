@@ -9,7 +9,8 @@ import BillRateCollapsible from "./collapsibles/BillRateCollapsible";
 import BillRateAssignerCollapsible from "./collapsibles/BillRateAssignerCollapsible";
 import ProjectBillRateCollapsible from "./collapsibles/ProjectBillRateCollapsible";
 import ObjectivesScopeInputDataDeliverablesCollapsible from "./collapsibles/ObjectivesScopeInputDataDeliverablesCollapsible";
-// import './tables/WbsTabView.css'
+import './tables/WbsTabView.css'
+import { Switch } from '@mui/material';
 interface IWbsTabViewProps {}
 
 interface TabPanelProps {
@@ -20,6 +21,7 @@ interface TabPanelProps {
 
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
+  
 
   return (
     <div
@@ -40,6 +42,7 @@ function TabPanel(props: TabPanelProps) {
 
 const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
   const [value, setValue] = React.useState(0);
+  const [checked, setChecked] = React.useState(false);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -59,10 +62,18 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
               <Tab label="VERSION THREE" />
             </Tabs>
           </Box>
+          
+          <Box  className="frozen">
+          Frozen<Switch
+            checked={checked}
+            onChange={() => setChecked(!checked)}
+          />
+
+          </Box>
           <TabPanel value={value} index={0}>
             <BillRateCollapsible />
             <ProjectBillRateCollapsible />
-            <WorkPackagesCollapsible />
+            <WorkPackagesCollapsible checked={checked} />
             <BillRateAssignerCollapsible />
             <ObjectivesScopeInputDataDeliverablesCollapsible />
           </TabPanel>

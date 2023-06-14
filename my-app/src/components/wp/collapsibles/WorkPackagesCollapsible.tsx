@@ -8,13 +8,14 @@ import Button from "@mui/material/Button";
 import WorkPackage from "../tables/WorkPackage";
 
 import "./WorkPackageCollapsible.css";
-interface IWorkPackagesCollapsibleProps { }
 
 
-interface IWorkPackageCollapsibleProps { }
+interface IWorkPackageCollapsibleProps {
+  checked:boolean
+ }
 
 const WorkPackageCollapsible: React.FunctionComponent<IWorkPackageCollapsibleProps> = (
-  props
+  {checked}
 ) => {
   const [open, setOpen] = React.useState(false);
 
@@ -27,7 +28,7 @@ const WorkPackageCollapsible: React.FunctionComponent<IWorkPackageCollapsiblePro
         </div>
         {open && (
           <Box>
-            <WorkPackage />
+            <WorkPackage checked={checked} />
           </Box>
         )}
       </div>
