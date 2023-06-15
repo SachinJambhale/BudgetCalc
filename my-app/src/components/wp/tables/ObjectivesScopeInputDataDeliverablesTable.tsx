@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 
 interface TableRowData {
   id: number;
@@ -20,91 +22,43 @@ const ObjectivesScopeInputDataDeliverables: React.FC = () => {
     setIsCollapsed(!isCollapsed);
   };
 
+  const handleNameChange = (event: any, editor: any, row: TableRowData) => {
+    const updatedData = editor.getData();
+    // Update the row.name value here if needed
+    // For example, row.name = updatedData;
+    console.log(updatedData);
+  };
+
   return (
     <table style={{ borderCollapse: "collapse", width: "100%" }}>
       <thead>
-        <tr>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}></th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Rate Table Table
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Category Type
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            DNA internal category
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Bill rate category
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>Curr</th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Bill Rate
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            BIll Rate Criteria
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Yrs Exp Start
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Yrs Exp End
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>
-            Valid from
-          </th>
-          <th style={{ border: "1px solid #ccc", padding: "8px" }}>Valid To</th>
-        </tr>
+        {/* ... */}
       </thead>
       <tbody>
         {tableData.map((row) => (
           <React.Fragment key={row.id}>
             <tr>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}></td>
+              {/* ... */}
               <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.id}
+                <CKEditor
+                  editor={ClassicEditor}
+                  data={row.name}
+                  onChange={(event: any, editor: any) => handleNameChange(event, editor, row)}
+                />
               </td>
               <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.name}
+                <CKEditor
+                  editor={ClassicEditor}
+                  data="<p>Hello from CKEditor!</p>"
+                  onChange={(event: any, editor: any) => {
+                    const data = editor.getData();
+                    console.log(data);
+                  }}
+                />
               </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.age}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.email}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.id}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.name}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.age}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.email}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.id}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.name}
-              </td>
-              <td style={{ border: "1px solid #ccc", padding: "8px" }}>
-                {row.age}
-              </td>
+              {/* ... */}
             </tr>
-            {isCollapsed && (
-              <tr>
-                <td
-                  colSpan={4}
-                  style={{ border: "1px solid #ccc", padding: "8px" }}
-                >
-                  Additional information for {row.name}
-                </td>
-              </tr>
-            )}
+            {/* ... */}
           </React.Fragment>
         ))}
       </tbody>

@@ -4,7 +4,6 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import GradeOutlinedIcon from "@mui/icons-material/GradeOutlined";
 import GradeIcon from "@mui/icons-material/Grade";
-import Paper from "@mui/material/Paper";
 import DownIcon from "../Icons/DownIcon";
 import RightIcon from "../Icons/RightIcon";
 import { Button, IconButton } from "@mui/material";
@@ -191,18 +190,13 @@ const ProjectBillRateTable = () => {
       }
     }
   };
-
-
   const isRowOpen = (rowIndex: number) => {
     return openRows.includes(rowIndex);
   };
   const toggleInvalidRates = () => {
     setShowInvalidRates(!showInvalidRates);
   };
-
-
- // console.log(data);
-
+  console.log(data);
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     e.preventDefault();
     const name = e.target.name as string;
@@ -213,7 +207,15 @@ const ProjectBillRateTable = () => {
    // console.log("initialData", data);
     //console.log("Temp", tempData);
   };
-
+  const handleChangeChild = (e: ChangeEvent<HTMLInputElement>, index: number) => {
+    e.preventDefault();
+    const name = e.target.name as string;
+    const { value } = e.target;
+    tempData.calcRev.AP4_BudgetCalcRateSchRel.value.jobCategories[index][name].value = value;
+    setTempData({ ...tempData });
+    console.log("initialData", data);
+    console.log("Temp", tempData);
+  };
   useEffect(() => {
     setTempData(_.cloneDeep(data));
   }, [data]);
@@ -396,25 +398,25 @@ const ProjectBillRateTable = () => {
                           type="date"
                           value={
                             insideCate.ap4_from_date?.value[0]?.split(
-                              "T"
-                            )[0]
-                          }
-                        />
-                      ) : (
-                        insideCate?.ap4_from_date?.value[0]?.split(
-                          "T"
-                        )[0]
-                      )}
-                    </td>
-                    <td>
-                      {insideCate?.ap4_to_date?.value[0]?.split("T")[0]}
-                    </td>
-                  </tr>))}
-
-                </React.Fragment>
-              )}
-            </React.Fragment>
-          ))}
+                                "T"
+                              )[0]
+                            }
+                          />
+                        ) : (
+                          insideCate?.ap4_from_date?.value[0]?.split(
+                            "T"
+                          )[0]
+                        )}
+                      </td>
+                      <td>
+                        {insideCate?.ap4_to_date?.value[0]?.split("T")[0]}
+                      </td>
+                      </tr>))}
+                 
+                  </React.Fragment>
+                )}
+              </React.Fragment>
+            ))}
         </table>
       </TableContainer>
     </>
