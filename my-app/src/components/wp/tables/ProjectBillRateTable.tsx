@@ -60,36 +60,90 @@ const ProjectBillRateTable = () => {
   // function applySorting(key:string, ascending:boolean) {
   //   setSorting({ key: key, ascending: ascending });
   // }
-  //const [users, setUsers] = useState<User[]>(tempdata);
-  const [sortConfig, setSortConfig] = useState<{
-    key: string;
-    direction: "asc" | "desc";
-  } | null>(null);
+  // const [users, setUsers] = useState<User[]>(tempData);
+  // const [sortConfig, setSortConfig] = useState<{
+  //   key: string;
+  //   direction: "asc" | "desc";
+  // } | null>(null);
 
-  const handleSort = (key: string) => {
-    let direction: "asc" | "desc" = "asc";
-    if (
-      sortConfig &&
-      sortConfig.key === key &&
-      sortConfig.direction === "asc"
-    ) {
-      direction = "desc";
+  // const handleSort = (key: string) => {
+  //   let direction: "asc" | "desc" = "asc";
+  //   if (
+  //     sortConfig &&
+  //     sortConfig.key === key &&
+  //     sortConfig.direction === "asc"
+  //   ) {
+  //     direction = "desc";
+  //   }
+  //   setSortConfig({ key, direction });
+  // };
+
+  // const sortedUsers = [{...tempData}];
+  
+  // if (sortConfig) {
+  //   sortedUsers.sort((a:any, b:any) => {
+  //     if (a[sortConfig.key] < b[sortConfig.key]) {
+  //       return sortConfig.direction === "asc" ? -1 : 1;
+  //     }
+  //     if (a[sortConfig.key] > b[sortConfig.key]) {
+  //       return sortConfig.direction === "asc" ? 1 : -1;
+  //     }
+  //     return 0;
+  //   });
+  // }
+
+  // const [sorting, setSorting] = useState({ key: "ValidFrom", ascending: true });
+  // const [currentUsers, setCurrentUsers] = useState(tempData);
+
+  // useEffect(() => {
+  //  const currentUsersCopy = [{...currentUsers}];
+
+  //   const sortedCurrentUsers = currentUsersCopy.sort((a:any, b:any) => {
+  //     return a[sorting.key].localeCompare(b[sorting.key]);
+  //   });
+
+  //   setCurrentUsers(
+  //     sorting.ascending ? sortedCurrentUsers : sortedCurrentUsers.reverse()
+  // );
+  // }, [currentUsers, sorting]);
+
+  // function applySorting(key:any, ascending:any) {
+  //   setSorting({ key: key, ascending: ascending });
+  // }
+
+  const[dat,setdat]=useState(obj);
+  const[order,setorder]=useState("ASC");
+  const sorting=(col:any)=>{
+    let copyofdata={...dat}
+    let value=copyofdata.calcRev.AP4_BudgetCalcRateSchRel.value;
+    for(let i=0;i<value.length;i++){
+     // console.log(value[i]);
+      let category=value[i].jobCategories;
+      //console.log(category);
+      category=category.sort((a:any,b:any)=>(a.ap4_from_date.value[0])-(b.ap4_from_date.value[0]));
     }
-    setSortConfig({ key, direction });
+    setdat(copyofdata);
+    ///new trial
+   
+    // if(order==="ASC"){
+    //   const sorted:any=[{...dat}].sort((a:any,b:any)=>
+    //   a[col].toLowerCase()>b[col].toLowerCase()?1:-1);
+    //   setdat(copyofdata);
+    //   console.log("sorted==",sorted);
+    //   console.log("data==",dat);
+    //   setorder("DSC");
+    // }
+    // if(order==="DSC"){
+    //   const sorted:any=[{...dat}].sort((a:any,b:any)=>
+    //   a[col].toLowerCase()<b[col].toLowerCase()?1:-1);
+    //   setdat(sorted[0]);
+    //   console.log("sorted==",sorted);
+    //   console.log("data==",dat);
+    //   setorder("ASC");
+    // }
   };
-
-  const sortedUsers = [{...tempData}];
-  if (sortConfig) {
-    sortedUsers.sort((a:any, b:any) => {
-      if (a[sortConfig.key] < b[sortConfig.key]) {
-        return sortConfig.direction === "asc" ? -1 : 1;
-      }
-      if (a[sortConfig.key] > b[sortConfig.key]) {
-        return sortConfig.direction === "asc" ? 1 : -1;
-      }
-      return 0;
-    });
-  }
+//console.log(currentUsers);
+//const budgetCalcRateSchRel = obj?.AP4_BudgetCalcRateSchRel ?? "defaultValue";
 
 
   const handleEdit = () => {
@@ -147,7 +201,7 @@ const ProjectBillRateTable = () => {
   };
 
 
-  console.log(data);
+ // console.log(data);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     e.preventDefault();
@@ -156,27 +210,28 @@ const ProjectBillRateTable = () => {
     // tempData.ctrRevision.calcRev.ctrs[index][name].value[0] = value;\
     tempData.calcRev.AP4_BudgetCalcRateSchRel.value[index][name].value[0] = value;
     setTempData({ ...tempData });
-    console.log("initialData", data);
-    console.log("Temp", tempData);
+   // console.log("initialData", data);
+    //console.log("Temp", tempData);
   };
 
   useEffect(() => {
     setTempData(_.cloneDeep(data));
   }, [data]);
 
-  type User = {
-    RateTableName:string;
-    CategoryType: string;
-    DNVInternalCategory: string;
-    BillRateCategory: string;
-    Curr: string;
-    BillRate: string;
-    BillRateCriteria: string;
-    YrsExpStart: string;
-    YrsExpEnd: string;
-    ValidFrom: string;
-    ValidTo: string;
-  };
+  // type User = {
+  //   RateTableName:string;
+  //   CategoryType: string;
+  //   DNVInternalCategory: string;
+  //   BillRateCategory: string;
+  //   Curr: string;
+  //   BillRate: string;
+  //   BillRateCriteria: string;
+  //   YrsExpStart: string;
+  //   YrsExpEnd: string;
+  //   ValidFrom: string;
+  //   ValidTo: string;
+  // };
+  //console.log( data.calcRev.AP4_BudgetCalcRateSchRel);
   return (
     <>
       <Box sx={{ margin: "5px", display: "flex", justifyContent: "start" }}>
@@ -231,22 +286,23 @@ const ProjectBillRateTable = () => {
             <th className="tborder tableHead">Rate Table Name</th>
             <th className="tborder tableHead">Category Type</th>
             <th className="tborder tableHead">DNVInternalCategory</th>
-            <th className="tborder tableHead">BillRateCategory</th>
+            <th className="tborder tableHead"  onClick={() => sorting("object_name")}>BillRateCategory</th>
             <th className="tborder tableHead">Curr</th>
             <th className="tborder tableHead">BillRate</th>
             <th className="tborder tableHead">BillRateCriteria</th>
             <th className="tborder tableHead">YrsExpStart</th>
             <th className="tborder tableHead">YrsExpEnd</th>
-            <th className="tborder tableHead" onClick={() => handleSort("ValidFrom")}>ValidFrom</th>
+            <th className="tborder tableHead" onClick={() => sorting("ap4_from_date")}>ValidFrom</th>
             <th className="tborder tableHead">ValidTo</th>
           </tr>
-          {tempData.calcRev.AP4_BudgetCalcRateSchRel.value.map((item: any, index: any) => (
-            <React.Fragment key={index}>
-              <tr>
+          {dat.calcRev.AP4_BudgetCalcRateSchRel.value.map((item: any, index: any) => (
+            <React.Fragment >
+              <tr key={item.id}>
                 <td>
                   <IconButton onClick={() => handleToggleRow(index)}>
                     {isRowOpen(index) ? <DownIcon /> : <RightIcon />}
                   </IconButton>
+
                   <AddCircleOutlineIcon style={{ color: "#2cb9ec" }} />{" "}
                   <DeleteOutlineOutlinedIcon
                     style={{ color: "#2cb9ec" }} />
