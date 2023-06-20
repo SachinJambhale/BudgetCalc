@@ -30,6 +30,8 @@ th {
 }
 input {
   border: none !important;
+  font-size: 12px !important;
+  font-weight: lighter !important;
 }
 
 tbody td.number {
@@ -80,4 +82,5 @@ tbody td.number {
   background-color: white;
   z-index: 1;
 }
+
 

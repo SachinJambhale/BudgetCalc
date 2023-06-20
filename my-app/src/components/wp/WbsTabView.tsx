@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
 import WorkPackagesCollapsible from "./collapsibles/WorkPackagesCollapsible";
+import SearchBillRateCollapsible from "./collapsibles/SearchBillRateCollapsible";
 import BillRateCollapsible from "./collapsibles/BillRateCollapsible";
 import BillRateAssignerCollapsible from "./collapsibles/BillRateAssignerCollapsible";
 import ProjectBillRateCollapsible from "./collapsibles/ProjectBillRateCollapsible";
@@ -49,7 +50,7 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
   };
   return (
     <>
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" className="tab">
         <Box sx={{ width: "100%" }}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <Tabs
@@ -62,7 +63,11 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
               <Tab label="VERSION THREE" />
             </Tabs>
           </Box>
-          
+          <Box className="version">
+          <><label>Version Description
+    </label><br/>
+    <textarea></textarea></>
+          </Box>
           <Box  className="frozen">
           Frozen<Switch
             checked={checked}
@@ -70,13 +75,17 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
           />
 
           </Box>
+          
           <TabPanel value={value} index={0}>
+            <SearchBillRateCollapsible/>
             <BillRateCollapsible />
             <ProjectBillRateCollapsible />
             <WorkPackagesCollapsible checked={checked} />
             <BillRateAssignerCollapsible />
             <ObjectivesScopeInputDataDeliverablesCollapsible />
           </TabPanel>
+          
+          
           <TabPanel value={value} index={1}>
             VERSION TWO
           </TabPanel>

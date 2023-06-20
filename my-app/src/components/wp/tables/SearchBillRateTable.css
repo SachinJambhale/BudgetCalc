@@ -1,0 +1,21 @@
+.checkbox-container {
+    display: flex;
+    gap: 10px; 
+    border-style: none !important;
+  }
+  
+  .checkbox {
+    margin-right: 10px; 
+  }
+  #tr{
+    border-style: none !important;
+  }
+  #input{
+    margin-left: 45% !important;
+    flex-direction: row-reverse !important;
+    border: 1px solid black !important;
+  }
+  #icon{
+    margin-left: 0% !important;
+  }
+  

@@ -101,7 +101,7 @@ const ObjectivesScopeInputDataDeliverablesCollapsible: React.FunctionComponent<I
 
         {isCollapsibleOpen && (
           <Box>
-              < ObjectivesScopeInputDataDeliverablesTable/>
+             // < ObjectivesScopeInputDataDeliverablesTable/>
           </Box>
         )}
       </div>
