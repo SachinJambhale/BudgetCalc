@@ -6,7 +6,7 @@
 // import Button from "@mui/material/Button";
 // import DownIcon from "../Icons/DownIcon";
 // import RightIcon from "../Icons/RightIcon";
- //import ObjectivesScopeInputDataDeliverablesTable from "../tables/ObjectivesScopeInputDataDeliverablesTable";
+ import ObjectivesScopeInputDataDeliverablesTable from "../tables/ObjectivesScopeInputDataDeliverablesTable";
 
 // interface IProjectBillRateProps {}
 
@@ -101,7 +101,7 @@ const ObjectivesScopeInputDataDeliverablesCollapsible: React.FunctionComponent<I
 
         {isCollapsibleOpen && (
           <Box>
-             // < ObjectivesScopeInputDataDeliverablesTable/>
+              < ObjectivesScopeInputDataDeliverablesTable/>
           </Box>
         )}
       </div>

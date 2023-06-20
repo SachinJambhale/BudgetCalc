@@ -26,6 +26,7 @@ const SearchBillRateTable: React.FC = () => {
     const [checkbox1, setCheckbox1] = useState(false);
     const [checkbox2, setCheckbox2] = useState(false);
     const [checkbox3, setCheckbox3] = useState(false);
+    const [selectedOption, setSelectedOption] = useState<string>("");
 
     const [searchTerm, setSearchTerm] = useState("");
 
@@ -47,11 +48,15 @@ const SearchBillRateTable: React.FC = () => {
         setCheckbox3(checked);
         console.log("checkbox3 meth");
     };
-
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSelectedOption(event.target.value);
+        console.log("called radio method");
+    };
     return (
         <div>
             <table>
                 <tr id="tr"> <label>Filter by type</label></tr>
+                <br />
                 <tr className="checkbox-container">
                     <Checkbox label="Favourites" checked={checkbox1} onChange={handleCheckbox1Change} />
                     <Checkbox label="Bill Rates" checked={checkbox2} onChange={handleCheckbox2Change} />
@@ -64,19 +69,20 @@ const SearchBillRateTable: React.FC = () => {
                         value={searchTerm}
                         onChange={handleSearchChange}
                     />
-                    <div id="icon"><i className="fas fa-search" style={{fontSize:24}}></i>   </div>
+                    <div id="icon"><i className="fas fa-search" style={{ fontSize: 24 }}></i>   </div>
                 </tr>
+                <br />
                 <tr id="tr">
-                <label>Filter by source</label>
+                    <label>Filter by source</label>
+                </tr> <br />
+                <tr className="checkbox-container">
+                    <input type="radio" name="pp" value="All" onChange={handleRadioChange} />All
+                    <input type="radio" name="pp" value="Frame Agreement" onChange={handleRadioChange} />Frame Agreement
+                    <input type="radio" name="pp" value="Area" onChange={handleRadioChange} />Area
+                    <input type="radio" name="pp" value="Regional" onChange={handleRadioChange} />Regional
+                    <input type="radio" name="pp" value="Responsible Cost Center" onChange={handleRadioChange} />Responsible Cost Center
                 </tr>
-<tr className="checkbox-container">
-    <input type="radio" name="pooja" value="All"/>All
-    <input type="radio" name="pooja" value="Frame Agreement"/>Frame Agreement
-    <input type="radio" name="pooja" value="Area"/>Area
-    <input type="radio" name="pooja" value="Regional"/>Regional
-    <input type="radio" name="pooja" value="Responsible Cost Center"/>Responsible Cost Center
-</tr>
-
+                <br />
             </table>
         </div>
     );
