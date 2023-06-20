@@ -23,105 +23,50 @@ const ProjectBillRateTable = () => {
   const _ = require("lodash");
   const copiedObject = _.cloneDeep(data);
   const [tempData, setTempData] = React.useState(copiedObject);
-  // //code for column sorting
-  // const [sorting, setSorting] = React.useState({ key: "Valid From", ascending: true });
-  // const [currentUser, setCurrentUser] = React.useState({data});
-  // React.useEffect(() => {
-  //   const currentUserCopy = [...currentUser]
-  //   const sortedCurrentUser = currentUserCopy.sort((a: any, b: any) => {
-  //     return a[sorting.key].localeCompare(b[sorting.key]);
-  //   });
-
-  //   setCurrentUser(sorting.ascending ? sortedCurrentUser : sortedCurrentUser.reverse());
-  // }, [currentUser, sorting]);
-
-
-  // const applySorting = (key: any, ascending: any) => {
-  //   setSorting({ key: key, ascending: ascending })
-  // }
-  // //
-
-  // const [sorting, setSorting] = useState({ key: "ValidFrom", ascending: true });
-  // const [currentUsers, setCurrentUsers] = useState(obj);
-
-  // useEffect(() => {
-  //   const currentUsersCopy = [{...currentUsers}];
-
-  //   const sortedCurrentUsers = currentUsersCopy.sort((a:any, b:any) => {
-  //     return a[sorting.key].localeCompare(b[sorting.key]);
-  //   });
-
-  //   setCurrentUsers(
-  //     sorting.ascending ? {sortedCurrentUsers} : {sortedCurrentUsers}.reverse()
-  //   );
-  // }, [currentUsers, sorting]);
-
-  // function applySorting(key:string, ascending:boolean) {
-  //   setSorting({ key: key, ascending: ascending });
-  // }
-  // const [users, setUsers] = useState<User[]>(tempData);
-  // const [sortConfig, setSortConfig] = useState<{
-  //   key: string;
-  //   direction: "asc" | "desc";
-  // } | null>(null);
-
-  // const handleSort = (key: string) => {
-  //   let direction: "asc" | "desc" = "asc";
-  //   if (
-  //     sortConfig &&
-  //     sortConfig.key === key &&
-  //     sortConfig.direction === "asc"
-  //   ) {
-  //     direction = "desc";
-  //   }
-  //   setSortConfig({ key, direction });
-  // };
-
-  // const sortedUsers = [{...tempData}];
-  
-  // if (sortConfig) {
-  //   sortedUsers.sort((a:any, b:any) => {
-  //     if (a[sortConfig.key] < b[sortConfig.key]) {
-  //       return sortConfig.direction === "asc" ? -1 : 1;
-  //     }
-  //     if (a[sortConfig.key] > b[sortConfig.key]) {
-  //       return sortConfig.direction === "asc" ? 1 : -1;
-  //     }
-  //     return 0;
-  //   });
-  // }
-
-  // const [sorting, setSorting] = useState({ key: "ValidFrom", ascending: true });
-  // const [currentUsers, setCurrentUsers] = useState(tempData);
-
-  // useEffect(() => {
-  //  const currentUsersCopy = [{...currentUsers}];
-
-  //   const sortedCurrentUsers = currentUsersCopy.sort((a:any, b:any) => {
-  //     return a[sorting.key].localeCompare(b[sorting.key]);
-  //   });
-
-  //   setCurrentUsers(
-  //     sorting.ascending ? sortedCurrentUsers : sortedCurrentUsers.reverse()
-  // );
-  // }, [currentUsers, sorting]);
-
-  // function applySorting(key:any, ascending:any) {
-  //   setSorting({ key: key, ascending: ascending });
-  // }
-
+  const[orders,setorders]=useState<any>([]);
   const[dat,setdat]=useState(obj);
-  const[order,setorder]=useState("ASC");
+  
+ // const[order,setorder]=useState("ASC");
   const sorting=(col:any)=>{
-    let copyofdata={...dat}
-    let value=copyofdata.calcRev.AP4_BudgetCalcRateSchRel.value;
-    for(let i=0;i<value.length;i++){
-     // console.log(value[i]);
-      let category=value[i].jobCategories;
-      //console.log(category);
-      category=category.sort((a:any,b:any)=>(a.ap4_from_date.value[0])-(b.ap4_from_date.value[0]));
+    let copyOfObject = {...tempData};
+    console.log(col);
+    if(col==="BillRateCategory" || col==="ValidFrom" || col==="DNVInternalCategory"){
+      console.log(col);
+      let AP4_BudgetCalcRateSchRelCalue = copyOfObject.calcRev.AP4_BudgetCalcRateSchRel.value;
+      for(let i in AP4_BudgetCalcRateSchRelCalue){
+          let jobCategories = AP4_BudgetCalcRateSchRelCalue[i].jobCategories;
+          if(typeof orders.BillRateCategory==="undefined" || orders.BillRateCategory==="DSC"){
+            jobCategories = jobCategories.sort((a:any,b:any) => (a.object_name.value[0] < b.object_name.value[0] ? -1 : (b.object_name.value > a.object_name.value ? 1 : 0)));      
+            console.log("jobCategories==>", jobCategories)
+            AP4_BudgetCalcRateSchRelCalue[i]['jobCategories'] = jobCategories
+            //AP4_BudgetCalcRateSchRelCalue[i]['jobCategories']["order"]="ASC"
+            let neworders:any={...orders};
+            neworders["BillRateCategory"]="ASC"
+            setorders(neworders);
+          }
+          else{
+            jobCategories = jobCategories.sort((a:any,b:any) => (a.object_name.value[0] > b.object_name.value[0] ? -1 : (b.object_name.value < a.object_name.value ? 1 : 0)));      
+            console.log("jobCategories==>", jobCategories)
+            AP4_BudgetCalcRateSchRelCalue[i]['jobCategories'] = jobCategories
+           // AP4_BudgetCalcRateSchRelCalue[i]['jobCategories']["order"]="DSC"
+            let neworders:any={...orders};
+            neworders["BillRateCategory"]="DSC"
+            setorders(neworders);
+          }
+        
+      }
+     setTempData(copyOfObject);
+     console.log("copyOfObject", copyOfObject);
     }
-    setdat(copyofdata);
+    //let copyofdata={...dat}
+    // let value=copyofdata.calcRev.AP4_BudgetCalcRateSchRel.value;
+    // for(let i=0;i<value.length;i++){
+    //  // console.log(value[i]);
+    //   let category=value[i].jobCategories;
+    //   //console.log(category);
+    //   category=category.sort((a:any,b:any)=>(a.ap4_from_date.value[0])-(b.ap4_from_date.value[0]));
+    // }
+    // setdat(copyofdata);
     ///new trial
    
     // if(order==="ASC"){
@@ -204,8 +149,8 @@ const ProjectBillRateTable = () => {
     // tempData.ctrRevision.calcRev.ctrs[index][name].value[0] = value;\
     tempData.calcRev.AP4_BudgetCalcRateSchRel.value[index][name].value[0] = value;
     setTempData({ ...tempData });
-   // console.log("initialData", data);
-    //console.log("Temp", tempData);
+    console.log("initialData", data);
+    console.log("Temp", tempData);
   };
   const handleChangeChild = (e: ChangeEvent<HTMLInputElement>, index: number) => {
     e.preventDefault();
@@ -287,17 +232,18 @@ const ProjectBillRateTable = () => {
 
             <th className="tborder tableHead">Rate Table Name</th>
             <th className="tborder tableHead">Category Type</th>
-            <th className="tborder tableHead">DNVInternalCategory</th>
-            <th className="tborder tableHead"  onClick={() => sorting("object_name")}>BillRateCategory</th>
+            <th className="tborder tableHead" onClick={() => sorting("DNVInternalCategory")}><u>DNVInternalCategory</u></th>
+            
+            <th className="tborder tableHead"  onClick={() => sorting("BillRateCategory")}><u>{`BillRateCategory ${orders&&orders.BillRateCategory==="ASC"?"":""}`}</u></th>
             <th className="tborder tableHead">Curr</th>
             <th className="tborder tableHead">BillRate</th>
             <th className="tborder tableHead">BillRateCriteria</th>
             <th className="tborder tableHead">YrsExpStart</th>
             <th className="tborder tableHead">YrsExpEnd</th>
-            <th className="tborder tableHead" onClick={() => sorting("ap4_from_date")}>ValidFrom</th>
+            <th className="tborder tableHead" onClick={() => sorting("ValidFrom")}><u>ValidFrom</u></th>
             <th className="tborder tableHead">ValidTo</th>
           </tr>
-          {dat.calcRev.AP4_BudgetCalcRateSchRel.value.map((item: any, index: any) => (
+          {tempData.calcRev.AP4_BudgetCalcRateSchRel.value.map((item: any, index: any) => (
             <React.Fragment >
               <tr key={item.id}>
                 <td>
