@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./SearchBillRateTable.css";
-
+import { Button } from "@mui/material";
 interface CheckboxProps {
     label: string;
     checked: boolean;
@@ -52,9 +52,13 @@ const SearchBillRateTable: React.FC = () => {
         setSelectedOption(event.target.value);
         console.log("called radio method");
     };
+    const handleButton = () => {
+        console.log("clicked on button");
+    }
     return (
         <div>
             <table>
+                <hr />
                 <tr id="tr"> <label>Filter by type</label></tr>
                 <br />
                 <tr className="checkbox-container">
@@ -82,7 +86,25 @@ const SearchBillRateTable: React.FC = () => {
                     <input type="radio" name="pp" value="Regional" onChange={handleRadioChange} />Regional
                     <input type="radio" name="pp" value="Responsible Cost Center" onChange={handleRadioChange} />Responsible Cost Center
                 </tr>
+                <hr />
+                <tr id="tr">
+                    <Button
+                        className="custombtn"
+                        sx={{ margin: "10px" }}
+                        onClick={handleButton}
+                    >
+                        Show Search Results
+                    </Button>
+                </tr>
+                <br /> <tr>No Search Results Found</tr>
+
                 <br />
+                <table>
+                    <tr id="tr">
+                        <th>Bill Rates</th>
+                        <th>Mixed Bill Rates</th>
+                    </tr>
+                </table>
             </table>
         </div>
     );

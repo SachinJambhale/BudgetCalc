@@ -51,8 +51,8 @@ const WbsTabView: React.FunctionComponent<IWbsTabViewProps> = (props) => {
   return (
     <>
       <Container maxWidth="xl" className="tab">
-        <Box sx={{ width: "100%" }}>
-          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Box sx={{ width: "100%" }} className="version">
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }} className="version">
             <Tabs
               value={value}
               onChange={handleChange}
